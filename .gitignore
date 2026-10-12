@@ -1,0 +1,32 @@
+# --- LaTeX build artifacts (auxiliares) ---
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.out
+*.bbl
+*.blg
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.fdb_latexmk
+*.xdv
+*.synctex(busy)
+
+# --- Directorios de compilación ---
+build/
+out/
+
+# --- PDFs: ignorar todos por defecto (artefactos de build) ---
+*.pdf
+
+# --- Excepción: preservar el PDF corregido por la profesora (material de referencia) ---
+!docs/TP-corregido-profesora.pdf
+
+# --- Archivos temporales del sistema / editor ---
+*~
+.DS_Store

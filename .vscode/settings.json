@@ -1,0 +1,18 @@
+{
+  "ltex.language": "es-AR",
+  "editor.tabSize": 2,
+  "files.exclude": {
+    "**/.venv": true,
+    "**/**pycache**": true,
+    "**/*.pyc": true,
+    "**/.pytest_cache": true,
+    "**/main.aux": true,
+    "**/main.log": true,
+    "**/main.fls": true,
+    "**/main.fdb_latexmk": true,
+    "**/main.out": true,
+    "**/main.toc": true,
+    "**/main.synctex.gz": true,
+  },
+  "editor.rulers": [100]
+}

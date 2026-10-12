@@ -1,0 +1,152 @@
+\section{Binomial}
+Una distribución binomial es una distribución discreta que modela el número de éxitos en un número
+fijo de ensayos independientes, donde cada ensayo tiene únicamente dos resultados posibles (éxito
+o fracaso). En este trabajo, aplicaremos este modelo teórico sobre la variable
+\Variable{absence\_days}. Tomaremos como "éxito" la condición de asistencia perfecta (0 faltas) con
+una probabilidad empírica de (p = 0,3243) ((32,43\%)) extraída de nuestra muestra. A partir de este
+parámetro, modelaremos probabilísticamente el comportamiento de un escenario hipotético al
+seleccionar un grupo cerrado de 10 estudiantes al azar ((n = 10)).
+
+\subsection{Medidas de tendencia central}
+\begin{itemize}
+	\item \textbf{Media ($\bar{x}$):} 1,22 días. En promedio, los estudiantes faltan poco más de un día.
+	\item \textbf{Mediana ($Me$):} 1 día. El 50\% de los alumnos tiene una falta o menos.
+	\item \textbf{Moda ($Mo$):} 0 días. El valor más frecuente es la asistencia perfecta (36 casos).
+\end{itemize}
+
+\subsection{Medidas de dispersión}
+\begin{itemize}
+	\item \textbf{Desvío estándar ($S$):} 1,10 días. Los datos se alejan, en promedio, 1,1 unidades de la media.
+	\item \textbf{Coeficiente de variación ($CV$):} ~90\%. Al ser mayor al 20\%, indica que los datos son heterogéneos; es decir, hay mucha diferencia entre los que nunca faltan y los que faltan el máximo de días.
+\end{itemize}
+
+\subsection{Tabla de probabilidades}
+Podemos transformar estos datos empíricos en un modelo de probabilidad teórico para predecir el
+comportamiento de la población estudiantil:
+\input{tables/binomial/dias_ausencia.tex}
+
+\newpage
+\subsection{Análisis binomial}
+Nos proponemos analizar las probabilidades para un escenario hipotético donde se eligen 10
+estudiantes al azar (n = 10), con el objetivo de predecir cuántos de ellos tienen asistencia
+perfecta (éxito con probabilidad p = 0,324 o 32,43\%).
+
+\subsubsection{Tabla de análisis binomial}
+\input{tables/binomial/analisis_binomial.tex}
+
+\begin{itemize}
+	\item \textbf{N:} Es la cantidad exacta de alumnos con asistencia perfecta que nos
+  interesa encontrar dentro del grupo de 10 (va desde 0 hasta un máximo de 10).
+	\item \textbf{Combinaciones:} Indica cuántas formas distintas existen para elegir a esos 'k'
+  alumnos dentro del total de 10. Por ejemplo, hay 120 maneras diferentes de combinar a 3 alumnos
+  con asistencia perfecta dentro de un grupo de 10.
+	\item \textbf{Desarrollo Teórico:} Muestra la aplicación de la fórmula binomial. Multiplica las
+  combinaciones por la probabilidad de tener asistencia perfecta elevada a la 'k' $(0.324)^k$, y por
+  la probabilidad de NO tener asistencia perfecta elevada al resto del grupo $(0.676)^{10-k}$.
+	\item \textbf{Prob. Exacta:} Es el porcentaje de chance que existe de encontrar exactamente
+  esa cantidad 'k' de estudiantes. Por ejemplo, hay un 26,33\% de probabilidad de que en el grupo de
+  10 alumnos haya exactamente 3 con asistencia perfecta (siendo este el resultado más probable).
+	\item \textbf{Prob. Acumulada:} Va sumando las probabilidades exactas fila por fila hacia
+  abajo. Sirve para responder preguntas de tipo 'menor o igual a'. Por ejemplo, el valor 0,5847
+  (58,47\%) en la fila 3 significa que existe esa probabilidad de encontrar 3 alumnos o menos con
+  asistencia perfecta.
+\end{itemize}
+
+\subsubsection{Parámetros de la distribución binomial}
+\begin{itemize}
+\item \textbf{Esperanza Matemática}(Media Teórica) \\
+  \PalabraClave{Fórmula:}
+  \[ E(X) = \mu = (x_1 * P(x_1)) + (x_2 * P(x_2)) + ... + (x_n * P(x_n)) \]
+
+  \PalabraClave{Cálculo:}
+  \begin{equation*}
+    \begin{split}
+      \sigma^2 = {} & ((0 - 1{,}2253)^2 \cdot 0{,}3243) + ((1 - 1{,}2253)^2 \cdot 0{,}2793) \\
+                    & + ((2 - 1{,}2253)^2 \cdot 0{,}2432) + ((3 - 1{,}2253)^2 \cdot 0{,}1532) =
+                    1{,}1295 \text{ días}^2
+    \end{split}
+  \end{equation*}
+
+  \PalabraClave{Cómo se toman los datos:}
+  A cada día de ausencia se le resta la esperanza matemática (mu = 1,2253). Ese resultado se eleva al
+  cuadrado (para evitar que los valores negativos se cancelen con los positivos) y se multiplica por
+  la probabilidad de ese día. Finalmente, se suman los cuatro resultados obtenidos.
+
+  \PalabraClave{Qué significa:} Mide la dispersión o variabilidad de los valores respecto a su media,
+  expresada en unidades al cuadrado. Sirve como paso matemático intermedio para conocer la fluctuación
+  de los datos escolares de la población.
+
+\item \textbf{Varianza Poblacional} \\
+  \PalabraClave{Fórmula:}
+  \begin{equation*}
+    \sigma^2 = ((x_1 - \mu)^2 \cdot P(x_1)) + ((x_2 - \mu)^2 \cdot P(x_2)) + ... + ((x_n - \mu)^2 \cdot P(x_n))
+  \end{equation*}
+
+  \PalabraClave{Desarrollo del cálculo:}
+  \begin{equation*}
+    \begin{split}
+      \sigma^2 = ((0 - 1{,}2253)^2 \cdot 0{,}3243) + ((1 - 1{,}2253)^2 \cdot 0{,}2793) + \\
+      ((2 - 1{,}2253)^2 \cdot 0{,}2432) + ((3 - 1{,}2253)^2 \cdot 0{,}1532) = 1{,}1295 \text{ días}^2
+    \end{split}
+  \end{equation*}
+
+  \PalabraClave{Cómo se toman los datos:}
+  A cada día de ausencia se le resta la esperanza matemática (mu = 1,2253). Ese resultado se
+  eleva al cuadrado (para evitar que los valores negativos se cancelen con los positivos) y se
+  multiplica por la probabilidad de ese día. Finalmente, se suman los cuatro resultados obtenidos.
+  
+  \PalabraClave{Qué significa:} Mide la dispersión o variabilidad de los valores respecto a su
+  media, expresada en unidades al cuadrado. Sirve como paso matemático intermedio para conocer la
+  fluctuación de los datos escolares de la población.
+
+\item \textbf{Desvío Estándar Poblacional} \\
+  \PalabraClave{Fórmula:}
+  \begin{equation*}
+    \sigma = \sqrt{\sigma^2}
+  \end{equation*}
+  \PalabraClave{Desarrollo del cálculo:}
+  \begin{equation*}
+    \sigma = \sqrt{1{,}1295} \approx 1{,}0632 \text{ días}
+  \end{equation*}
+
+  \PalabraClave{Cómo se toman los datos:}
+  Se toma el valor final obtenido en el cálculo de la varianza poblacional (1,1295) y se le aplica
+  la operación de raíz cuadrada para devolver la medida a su unidad original.
+
+  \PalabraClave{Qué significa:} Indica qué tan dispersos están los datos con respecto al promedio,
+  pero expresado directamente en la unidad de medida original (días). En este caso, señala que las
+  inasistencias de los alumnos varían, en promedio, 1,06 días alrededor de la media (1,23 días).
+
+\end{itemize}
+
+\subsubsection{Gráfico de barras}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/barras.png}
+    \caption{Gráfico de distribución binomial}
+    \label{fig:grafico_probabilidad}
+\end{figure}
+
+\PalabraClave{Análisis del Comportamiento de las Barras:}
+\begin{itemize}
+  \item \textbf{El punto más alto (La Moda):}
+    La barra correspondiente a 3 estudiantes es la más alta, alcanzando una altura del 26,33\%. Esto
+    demuestra visualmente que el resultado más probable al armar el grupo es encontrar exactamente a
+    3 alumnos con asistencia perfecta, lo cual coincide casi perfectamente con la esperanza
+    matemática general.
+
+  \item \textbf{Rango central de normalidad:}
+    Las barras de 2, 3 y 4 estudiantes concentran la mayor parte de la altura del gráfico. Al estar
+    agrupadas en el centro, indican que en casi el 70\% de los casos, la cantidad de alumnos con
+    asistencia perfecta se ubicará en este rango.
+
+  \item \textbf{Asimetría de la distribución:}
+    El gráfico tiene un ligero sesgo hacia la derecha. Esto se debe a que la probabilidad de éxito
+    (32,4\%) es menor al 50\%. Por lo tanto, las barras descienden más lentamente hacia los números
+    altos que hacia los bajos.
+
+  \item \textbf{Los extremos insignificantes:}
+    A partir de los 7 estudiantes en adelante, las barras se vuelven prácticamente invisibles. Esto
+    demuestra de forma gráfica que la probabilidad de encontrar 8, 9 o 10 alumnos con asistencia
+    perfecta en un mismo grupo de 10 es casi del 0\%.
+\end{itemize}
