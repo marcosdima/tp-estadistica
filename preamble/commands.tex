@@ -1,0 +1,28 @@
+% =====================================================================
+%  preamble/commands.tex
+%  Comandos y abreviaturas propias del documento.
+% =====================================================================
+
+% --- Subsecciones frecuentes ---
+\newcommand{\AnalisisDescriptivo}{\subsubsection{Análisis descriptivo}}
+\newcommand{\TablaDeDatos}{\subsubsection{Tabla de datos}}
+
+% --- Resaltados ---
+\newcommand{\PalabraClave}[1]{\medskip\textbf{#1}}       % palabras clave en el texto
+\newcommand{\Variable}[1]{\textbf{\texttt{#1}}}           % nombres de variables (monoespaciada)
+\newcommand{\Interpretacion}{\subsubsection{Interpretación}}
+
+% --- Título para gráficos ---
+\newcommand{\TituloGrafico}[1]{\subsubsection{Gráfico: #1}}
+
+% --- Encabezado y pie de página ---
+\setlength{\headheight}{14pt}   % evita el warning de fancyhdr
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{gris}{Trabajo Práctico de Estadística}}
+\fancyhead[R]{\small\textcolor{gris}{Quiñonez -- Di Matteo}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Espaciado de secciones ---
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}

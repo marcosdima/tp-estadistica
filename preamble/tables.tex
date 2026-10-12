@@ -1,0 +1,54 @@
+% =====================================================================
+%  preamble/tables.tex
+%  Sistema de tablas SIMPLIFICADO.
+%  Reemplaza el andamiaje anterior (TablaDatos / TablaFila / TablaClave)
+%  por un único entorno basado en xltabular + booktabs.
+%
+%  Uso:
+%    \begin{DatosTabla}{cols}{encabezado}
+%      fila1 & fila1 & ... \\
+%      fila2 & fila2 & ... \\
+%    \end{DatosTabla}
+%
+%  Donde:
+%    - {cols}      especificación de columnas (L{}, C{}, X, etc.)
+%    - {encabezado} celdas del encabezado separadas por & (sin \\ final)
+%  Las filas se escriben directamente con & y \\, sin comandos auxiliares.
+% =====================================================================
+
+% --- Tipos de columna reutilizables (ancho fijo, suma = ancho de tabla) ---
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}                 % ancho fijo, izq.
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}                   % ancho fijo, centrado
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}                  % ancho fijo, der.
+
+% --- Comando para identificadores largos (parte en cualquier carácter) ---
+\newcommand{\TablaClave}[1]{{\ttfamily\seqsplit{#1}}}
+
+% --- Entorno de tabla de datos con cabecera repetible en cada página ---
+%   Basado en longtable puro (más robusto que xltabular dentro de un
+%   entorno propio). Las columnas se declaran con ancho fijo L/C/R.
+\NewDocumentEnvironment{DatosTabla}{mm}
+{%
+  \setlength{\tabcolsep}{5pt}%
+  \renewcommand{\arraystretch}{1.3}%
+  \setlength{\LTleft}{0pt}%
+  \setlength{\LTright}{0pt}%
+  \begin{longtable}{#1}%
+    \toprule
+    #2 \\ \midrule
+  \endfirsthead
+    \toprule
+    #2 \\ \midrule
+  \endhead
+    \midrule
+  \endfoot
+    \bottomrule
+  \endlastfoot
+}
+{\end{longtable}}
+
+% --- Caja reutilizable para resaltar resultados/interpretaciones ---
+\newtcolorbox{CajaDestacada}[1][]{%
+  colback=tablafila, colframe=azul!40, boxrule=0.6pt, arc=2pt,
+  left=6pt, right=6pt, top=4pt, bottom=4pt, #1%
+}

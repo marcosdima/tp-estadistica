@@ -1,8 +1,24 @@
+% =====================================================================
+%  main.tex -- Trabajo Práctico de Estadística
+%  Documento principal: solo estructura (preámbulo + secciones en orden).
+%  El preámbulo vive modularizado en ./preamble/
+% =====================================================================
+
 \documentclass[12pt,a4paper]{article}
 
-\input{config}
+% --- Preámbulo (el orden importa) ---
+\input{preamble/packages}
+\input{preamble/geometry}
+\input{preamble/fonts}
+\input{preamble/colors}
+\input{preamble/tables}
+\input{preamble/graphics}
+\input{preamble/commands}
+\input{preamble/hyperref}   % siempre al final
+
+% --- Metadatos ---
 \title{Trabajo Práctico de Estadística}
-\author{
+\author{%
   Quiñonez Espinola, Carlos Nahuel \\
   Di Matteo Brambilla, Marcos \\
 }
@@ -14,21 +30,17 @@
 
 \newpage
 
-\input{sections/introduccion}
+% --- Secciones (prefijo numérico = orden explícito) ---
+\input{sections/00-introduccion}
 \newpage
-
-\input{sections/cualitativas}
+\input{sections/01-cualitativas}
 \newpage
-
-\input{sections/cuantitativas.tex}
+\input{sections/02-cuantitativas}
 \newpage
-
-\input{sections/bivariables.tex}
+\input{sections/03-bivariables}
 \newpage
-
-\input{sections/probabilidad.tex}
+\input{sections/04-probabilidad}
 \newpage
-
-\input{sections/binomial.tex}
+\input{sections/05-binomial}
 
 \end{document}
