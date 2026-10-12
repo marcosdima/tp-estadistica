@@ -5,18 +5,18 @@
 % =====================================================================
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[node distance=1.0cm and 0.6cm]
-  % Nivel 1
+\begin{tikzpicture}[node distance=1.4cm and 0.6cm]
+  % Nivel 1 (raíces)
   \node[caja] (cualitativa) {Cualitativas};
-  \node[caja, right=4.2cm of cualitativa] (cuantitativa) {Cuantitativas};
+  \node[caja, right=5.0cm of cualitativa] (cuantitativa) {Cuantitativas};
 
-  % Nivel 2 (debajo de Cualitativas)
-  \node[caja, below left=1.0cm and 0.4cm of cualitativa] (nom) {Nominales};
-  \node[caja, below right=1.0cm and 0.4cm of cualitativa] (ord) {Ordinales};
+  % Nivel 2 — bajo Cualitativas
+  \node[caja, below=of cualitativa, xshift=-1.6cm] (nom) {Nominales};
+  \node[caja, below=of cualitativa, xshift=1.6cm]  (ord) {Ordinales};
 
-  % Nivel 2 (debajo de Cuantitativas)
-  \node[caja, below left=1.0cm and 0.4cm of cuantitativa] (disc) {Discretas};
-  \node[caja, below right=1.0cm and 0.4cm of cuantitativa] (cont) {Continua};
+  % Nivel 2 — bajo Cuantitativas
+  \node[caja, below=of cuantitativa, xshift=-1.6cm] (disc) {Discretas};
+  \node[caja, below=of cuantitativa, xshift=1.6cm]  (cont) {Continua};
 
   % Flechas
   \draw[flecha] (cualitativa) -- (nom);

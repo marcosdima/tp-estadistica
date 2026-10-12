@@ -1,19 +1,22 @@
 % =====================================================================
 %  preamble/tables.tex
 %  Sistema de tablas SIMPLIFICADO.
-%  Reemplaza el andamiaje anterior (TablaDatos / TablaFila / TablaClave)
-%  por un único entorno basado en xltabular + booktabs.
+%  Un único entorno DatosTabla basado en longtable + booktabs, con:
+%    - título opcional (negrita, centrado, SIN numeración de "Cuadro N")
+%    - líneas horizontales de separación entre filas (\hline en cada fila)
 %
 %  Uso:
-%    \begin{DatosTabla}{cols}{encabezado}
-%      fila1 & fila1 & ... \\
-%      fila2 & fila2 & ... \\
+%    \begin{DatosTabla}{cols}{encabezado}[título]
+%      fila1 & ... \\ \hline
+%      fila2 & ... \\ \hline
+%      última & ... \\            % la última sin \hline
 %    \end{DatosTabla}
 %
 %  Donde:
-%    - {cols}      especificación de columnas (L{}, C{}, X, etc.)
+%    - {cols}       especificación de columnas (L{}, C{}, R{})
 %    - {encabezado} celdas del encabezado separadas por & (sin \\ final)
-%  Las filas se escriben directamente con & y \\, sin comandos auxiliares.
+%    - [título]     OPCIONAL. Texto del título (sin "Cuadro N:")
+%  Cada fila del cuerpo termina en "\\ \hline" para la línea de separación.
 % =====================================================================
 
 % --- Tipos de columna reutilizables (ancho fijo, suma = ancho de tabla) ---
@@ -21,19 +24,26 @@
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}                   % ancho fijo, centrado
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}                  % ancho fijo, der.
 
+% --- Título de tabla: negrita, centrado, sin numeración (no es "Cuadro N") ---
+\newcommand{\TituloTabla}[1]{\caption*{\textbf{#1}}}
+
+% --- Ancho del caption de longtable = ancho de texto (evita overfull) ---
+\setlength{\LTcapwidth}{\textwidth}
+
 % --- Comando para identificadores largos (parte en cualquier carácter) ---
 \newcommand{\TablaClave}[1]{{\ttfamily\seqsplit{#1}}}
 
 % --- Entorno de tabla de datos con cabecera repetible en cada página ---
-%   Basado en longtable puro (más robusto que xltabular dentro de un
-%   entorno propio). Las columnas se declaran con ancho fijo L/C/R.
-\NewDocumentEnvironment{DatosTabla}{mm}
+%   Título opcional (#3). Las filas del cuerpo llevan "\hline" al final
+%   para dibujar la línea de separación horizontal entre filas.
+\NewDocumentEnvironment{DatosTabla}{mmo}
 {%
   \setlength{\tabcolsep}{5pt}%
   \renewcommand{\arraystretch}{1.3}%
   \setlength{\LTleft}{0pt}%
   \setlength{\LTright}{0pt}%
   \begin{longtable}{#1}%
+  \IfValueT{#3}{\TituloTabla{#3}\\[3pt]}
     \toprule
     #2 \\ \midrule
   \endfirsthead
@@ -52,3 +62,4 @@
   colback=tablafila, colframe=azul!40, boxrule=0.6pt, arc=2pt,
   left=6pt, right=6pt, top=4pt, bottom=4pt, #1%
 }
+

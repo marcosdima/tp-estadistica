@@ -1,0 +1,26 @@
+% =====================================================================
+%  figures/vad-funcion-prob.tex
+%  Funcion de probabilidad de la VAD 'absence_days'.
+%  (Grafico NUEVO que pide la profesora para el analisis de VAD,
+%   distinto del grafico de la distribucion binomial.)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  ybar, bar width=22pt,
+  title={Función de probabilidad de \Variable{absence\_days} (VAD)},
+  xlabel={Días de ausencia ($x$)},
+  ylabel={Probabilidad $P(x)$ (\%)},
+  ymin=0, ymax=38,
+  symbolic x coords={0, 1, 2, 3},
+  xtick=data,
+  enlarge x limits=0.4,
+  nodes near coords,
+]
+\addplot+[fill=verde, draw=verde] coordinates {(0,32.43) (1,27.93) (2,24.32) (3,15.32)};
+\end{axis}
+\end{tikzpicture}
+\caption{Función de probabilidad de la variable aleatoria discreta \Variable{absence\_days}.}
+\label{fig:vad_funcion_probabilidad}
+\end{figure}

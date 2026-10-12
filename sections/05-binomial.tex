@@ -2,31 +2,48 @@
 Una distribución binomial es una distribución discreta que modela el número de éxitos en un número
 fijo de ensayos independientes, donde cada ensayo tiene únicamente dos resultados posibles (éxito
 o fracaso). En este trabajo, aplicaremos este modelo teórico sobre la variable
-\Variable{absence\_days}. Tomaremos como "éxito" la condición de asistencia perfecta (0 faltas) con
-una probabilidad empírica de (p = 0,3243) ((32,43\%)) extraída de nuestra muestra. A partir de este
-parámetro, modelaremos probabilísticamente el comportamiento de un escenario hipotético al
-seleccionar un grupo cerrado de 10 estudiantes al azar ((n = 10)).
+\Variable{absence\_days}. Tomaremos como "éxito" la condición de asistencia perfecta (0 faltas),
+con una probabilidad empírica de \(p = 0{,}3243\) (\(32{,}43\%\)) extraída de nuestra muestra.
 
-\subsection{Medidas de tendencia central}
+El análisis de esta sección se divide en dos partes claramente diferenciadas:
+
+\begin{itemize}
+  \item \textbf{Variable aleatoria discreta (VAD):} modelamos empíricamente la variable
+  \Variable{absence\_days} (días de ausencia) de nuestra muestra: medidas de tendencia central,
+  de dispersión y función de probabilidad.
+  \item \textbf{Modelo binomial teórico:} sobre esa VAD aplicamos la distribución binomial
+  (éxito = asistencia perfecta, $p = 0{,}3243$) para un escenario hipotético de $n = 10$
+  estudiantes seleccionados al azar.
+\end{itemize}
+
+\subsection{Análisis de la VAD: \Variable{absence\_days}}
+Las medidas y probabilidades de esta parte describen únicamente la variable
+\Variable{absence\_days} (días de ausencia), sin aplicar aún el modelo binomial.
+
+\subsubsection{Medidas de tendencia central}
 \begin{itemize}
 	\item \textbf{Media ($\bar{x}$):} 1,22 días. En promedio, los estudiantes faltan poco más de un día.
 	\item \textbf{Mediana ($Me$):} 1 día. El 50\% de los alumnos tiene una falta o menos.
 	\item \textbf{Moda ($Mo$):} 0 días. El valor más frecuente es la asistencia perfecta (36 casos).
 \end{itemize}
 
-\subsection{Medidas de dispersión}
+\subsubsection{Medidas de dispersión}
 \begin{itemize}
 	\item \textbf{Desvío estándar ($S$):} 1,10 días. Los datos se alejan, en promedio, 1,1 unidades de la media.
 	\item \textbf{Coeficiente de variación ($CV$):} ~90\%. Al ser mayor al 20\%, indica que los datos son heterogéneos; es decir, hay mucha diferencia entre los que nunca faltan y los que faltan el máximo de días.
 \end{itemize}
 
-\subsection{Tabla de probabilidades}
+\subsubsection{Tabla de probabilidades}
 Podemos transformar estos datos empíricos en un modelo de probabilidad teórico para predecir el
 comportamiento de la población estudiantil:
 \input{tables/binomial-empirica}
 
+La función de probabilidad $P(x)$ de la variable aleatoria discreta \Variable{absence\_days} es:
+
+\input{figures/vad-funcion-prob}
+
 \newpage
-\subsection{Análisis binomial}
+\subsection{Modelo teórico: distribución binomial}
 Nos proponemos analizar las probabilidades para un escenario hipotético donde se eligen 10
 estudiantes al azar (n = 10), con el objetivo de predecir cuántos de ellos tienen asistencia
 perfecta (éxito con probabilidad p = 0,324 o 32,43\%).

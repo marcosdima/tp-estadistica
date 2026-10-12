@@ -7,7 +7,7 @@
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-  ybar, bar width=22pt,
+  ybar, bar width=42pt,
   title={Distribución de \Variable{math\_score} por intervalos},
   xlabel={Intervalo de puntaje},
   ylabel={Frecuencia (fi)},
@@ -15,7 +15,7 @@
   symbolic x coords={74-78, 78-82, 82-86, 86-90, 90-94},
   xtick=data,
   nodes near coords,
-  enlarge x limits=0.15,
+  enlarge x limits=0.06,
 ]
 \addplot+[ybar, fill=azul, draw=azul] coordinates {
   (74-78,1) (78-82,10) (82-86,64) (86-90,21) (90-94,15)

@@ -1,0 +1,26 @@
+% =====================================================================
+%  figures/ausencias-bastones.tex
+%  Grafico de BASTONES para la variable discreta 'absence_days'.
+%  (Reemplaza a img/discreta.png; correccion de la profesora:
+%   para variables discretas corresponde grafico de bastones o de caja)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  ybar, bar width=22pt,
+  title={Frecuencia de días de ausencia (\Variable{absence\_days})},
+  xlabel={Días de ausencia},
+  ylabel={Cantidad de estudiantes (fi)},
+  ymin=0, ymax=42,
+  symbolic x coords={0, 1, 2, 3},
+  xtick=data,
+  enlarge x limits=0.4,
+  nodes near coords,
+]
+\addplot+[fill=azul, draw=azul] coordinates {(0,36) (1,31) (2,27) (3,17)};
+\end{axis}
+\end{tikzpicture}
+\caption{Gráfico de bastones para la variable \Variable{absence\_days}.}
+\label{fig:grafico_absence_days}
+\end{figure}

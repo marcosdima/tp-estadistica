@@ -1,28 +1,30 @@
 % =====================================================================
 %  figures/probabilidad-barras.tex
-%  Barras agrupadas: 'gender' x 'career_specialization_level'.
-%  (Reemplaza a img/probabilidad.png)
+%  Barras agrupadas por GENERO: nivel de especializacion dentro de
+%  cada genero (Femenino / Masculino). (Reemplaza a img/probabilidad.png)
 % =====================================================================
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
 \begin{axis}[
-  ybar, bar width=14pt,
-  title={Especialización profesional según género},
-  xlabel={Nivel de especialización},
+  ybar, bar width=18pt,
+  title={Nivel de especialización profesional por género},
+  xlabel={Género},
   ylabel={Cantidad de estudiantes},
-  ymin=0, ymax=30,
-  symbolic x coords={Básica (B), Media (M), Alta (A)},
+  ymin=0, ymax=28,
+  symbolic x coords={Femenino, Masculino},
   xtick=data,
-  legend style={at={(0.5,-0.18)}, anchor=north, legend columns=-1},
-  enlarge x limits=0.3,
+  legend style={at={(0.5,-0.16)}, anchor=north, legend columns=-1},
+  enlarge x limits=0.5,
   nodes near coords,
 ]
-\addplot+[fill=azul, draw=azul] coordinates {(Básica (B),23) (Media (M),19) (Alta (A),16)};
-\addplot+[fill=naranja, draw=naranja] coordinates {(Básica (B),17) (Media (M),11) (Alta (A),25)};
-\legend{Femenino (F), Hombre (H)}
+\addplot+[fill=azul, draw=azul] coordinates {(Femenino,23) (Masculino,17)};
+\addplot+[fill=naranja, draw=naranja] coordinates {(Femenino,19) (Masculino,11)};
+\addplot+[fill=verde, draw=verde] coordinates {(Femenino,16) (Masculino,25)};
+\legend{Básica, Media, Alta}
 \end{axis}
 \end{tikzpicture}
-\caption{Gráfico para las variables \Variable{gender} y \Variable{career\_specialization\_level}.}
+\caption{Relación entre \Variable{gender} y \Variable{career\_specialization\_level}.}
 \label{fig:grafico_probabilidad_barras}
 \end{figure}
+
