@@ -1,0 +1,28 @@
+% =====================================================================
+%  figures/probabilidad-barras.tex
+%  Barras agrupadas: 'gender' x 'career_specialization_level'.
+%  (Reemplaza a img/probabilidad.png)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  ybar, bar width=14pt,
+  title={Especialización profesional según género},
+  xlabel={Nivel de especialización},
+  ylabel={Cantidad de estudiantes},
+  ymin=0, ymax=30,
+  symbolic x coords={Básica (B), Media (M), Alta (A)},
+  xtick=data,
+  legend style={at={(0.5,-0.18)}, anchor=north, legend columns=-1},
+  enlarge x limits=0.3,
+  nodes near coords,
+]
+\addplot+[fill=azul, draw=azul] coordinates {(Básica (B),23) (Media (M),19) (Alta (A),16)};
+\addplot+[fill=naranja, draw=naranja] coordinates {(Básica (B),17) (Media (M),11) (Alta (A),25)};
+\legend{Femenino (F), Hombre (H)}
+\end{axis}
+\end{tikzpicture}
+\caption{Gráfico para las variables \Variable{gender} y \Variable{career\_specialization\_level}.}
+\label{fig:grafico_probabilidad_barras}
+\end{figure}

@@ -1,0 +1,27 @@
+% =====================================================================
+%  figures/intervalos-histograma.tex
+%  Histograma de 'math_score' agrupada en intervalos.
+%  (Reemplaza a img/intervalos.png)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  ybar, bar width=22pt,
+  title={Distribución de \Variable{math\_score} por intervalos},
+  xlabel={Intervalo de puntaje},
+  ylabel={Frecuencia (fi)},
+  ymin=0, ymax=75,
+  symbolic x coords={74-78, 78-82, 82-86, 86-90, 90-94},
+  xtick=data,
+  nodes near coords,
+  enlarge x limits=0.15,
+]
+\addplot+[ybar, fill=azul, draw=azul] coordinates {
+  (74-78,1) (78-82,10) (82-86,64) (86-90,21) (90-94,15)
+};
+\end{axis}
+\end{tikzpicture}
+\caption{Gráfico de barras para la variable \Variable{math\_score} agrupada en intervalos.}
+\label{fig:grafico_math_score_intervalos}
+\end{figure}

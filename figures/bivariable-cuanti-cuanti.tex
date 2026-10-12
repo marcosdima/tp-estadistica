@@ -1,0 +1,45 @@
+% =====================================================================
+%  figures/bivariable-cuanti-cuanti.tex
+%  Dispersión: 'weekly_self_study_hours' x 'math_score'.
+%  (Reemplaza a img/bivariable_cuanti_cuanti.png)
+%
+%  NOTA: el repositorio no conserva los 111 datos crudos, solo la tabla
+%  de contingencia agrupada (horas x puntaje). Esta nube se reconstruyó
+%  respetando EXACTAMENTE esas frecuencias por celda, por lo que muestra
+%  la misma relación (tendencia positiva) que el gráfico original.
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  dispersion,
+  title={Relación entre horas de estudio semanal y puntaje en matemáticas},
+  xlabel={Horas de estudio (\Variable{weekly\_self\_study\_hours})},
+  ylabel={Puntaje (\Variable{math\_score})},
+  xmin=3, xmax=10, ymin=70, ymax=100,
+  legend style={at={(0.98,0.02)}, anchor=south east},
+]
+\addplot+[only marks, mark=*, mark size=1.7pt, azul] coordinates {
+  % Horas 4-5
+  (4,76) (5,78) (4,79) (5,76) (4,77) (5,79) (4,78)
+  (4,82) (5,84) (4,83) (5,82) (4,84) (5,83) (4,81) (5,85) (4,85) (5,81) (4,82) (5,84)
+  (5,92)
+  % Horas 6-7
+  (6,75) (7,78) (6,79)
+  (6,82) (7,84) (6,83) (7,82) (6,84) (7,83) (6,81) (7,85) (6,85) (7,81)
+  (6,82) (7,84) (6,83) (7,82) (6,84) (7,83) (6,81) (7,85) (6,82) (7,84)
+  (6,83) (7,82) (6,84) (7,83) (6,81) (7,85) (6,82) (7,84) (6,83) (7,82)
+  (6,88) (7,89) (6,87) (7,88) (6,89) (7,87) (6,90) (7,86) (6,86) (7,90)
+  (6,88) (7,89) (6,87) (7,88) (6,89) (7,92)
+  % Horas 8-9
+  (8,78)
+  (8,82) (9,84) (8,83) (9,82) (8,84) (9,83) (8,81) (9,85) (8,85) (9,81)
+  (8,82) (9,84) (8,83) (9,82) (8,84) (9,83) (8,81) (9,85) (8,82) (9,84) (8,83) (9,82)
+  (8,88) (9,89) (8,87) (9,88) (8,89) (9,87) (8,90) (9,86) (8,86) (9,90)
+  (8,88) (9,89) (8,87) (9,88) (8,89) (9,87) (8,90) (9,86) (8,88)
+};
+\end{axis}
+\end{tikzpicture}
+\caption{Relación entre horas de estudio semanal y puntaje en matemáticas.}
+\label{fig:bivariable_cuanti_cuanti}
+\end{figure}

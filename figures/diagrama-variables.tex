@@ -1,0 +1,29 @@
+% =====================================================================
+%  figures/diagrama-variables.tex
+%  Diagrama de flujo: clasificación de las variables.
+%  (Reemplaza a img/variables.png)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[node distance=1.0cm and 0.6cm]
+  % Nivel 1
+  \node[caja] (cualitativa) {Cualitativas};
+  \node[caja, right=4.2cm of cualitativa] (cuantitativa) {Cuantitativas};
+
+  % Nivel 2 (debajo de Cualitativas)
+  \node[caja, below left=1.0cm and 0.4cm of cualitativa] (nom) {Nominales};
+  \node[caja, below right=1.0cm and 0.4cm of cualitativa] (ord) {Ordinales};
+
+  % Nivel 2 (debajo de Cuantitativas)
+  \node[caja, below left=1.0cm and 0.4cm of cuantitativa] (disc) {Discretas};
+  \node[caja, below right=1.0cm and 0.4cm of cuantitativa] (cont) {Continua};
+
+  % Flechas
+  \draw[flecha] (cualitativa) -- (nom);
+  \draw[flecha] (cualitativa) -- (ord);
+  \draw[flecha] (cuantitativa) -- (disc);
+  \draw[flecha] (cuantitativa) -- (cont);
+\end{tikzpicture}
+\caption{Clasificación de los tipos de variables de la base de datos.}
+\label{fig:variables}
+\end{figure}

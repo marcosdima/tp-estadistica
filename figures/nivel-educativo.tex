@@ -1,0 +1,24 @@
+% =====================================================================
+%  figures/nivel-educativo.tex
+%  Gráfico de barras para 'parent_max_education'.
+%  (Reemplaza a img/grafico_nivel_educativo.png)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  barras,
+  title={Nivel educativo máximo de los padres},
+  ylabel={Cantidad de estudiantes},
+  symbolic x coords={bachelor\_degree, master\_degree},
+  xtick=data,
+  ymin=0, ymax=120,
+  enlarge x limits=0.5,
+  nodes near coords,
+]
+\addplot coordinates {(bachelor\_degree,104) (master\_degree,7)};
+\end{axis}
+\end{tikzpicture}
+\caption{Gráfico de barras para la variable \Variable{parent\_max\_education}.}
+\label{fig:grafico_parent_max_education}
+\end{figure}

@@ -1,0 +1,24 @@
+% =====================================================================
+%  figures/ausencias-torta.tex
+%  Gráfico de torta para la variable 'absence_days'.
+%  (Reemplaza a img/discreta.png)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \pie[
+    text=legend,
+    radius=2.6,
+    color={azul, naranja, verde, azulclaro},
+    sum=auto,
+    after number=\%,
+  ]{
+    32.43/Sin ausencias,
+    27.93/Con 1 ausencia,
+    24.32/Con 2 ausencias,
+    15.32/Con 3 ausencias
+  }
+\end{tikzpicture}
+\caption{Gráfico de torta para la variable \Variable{absence\_days}.}
+\label{fig:grafico_absence_days}
+\end{figure}
