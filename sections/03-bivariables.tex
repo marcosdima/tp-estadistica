@@ -10,13 +10,9 @@ El más sencillo, comparando dos variables cualitativas. En este caso utilizarem
 
 
 \TablaDeDatos
-\input{tables/bivariable/cualitativa_cualitativa}.
+\input{tables/bivariable-cuali-cuali}.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\linewidth]{./img/bivariable_cuali_cuali.png}
-\caption{Relación entre trabajo a tiempo parcial y días de ausencia.}
-\end{figure}
+\input{figures/bivariable-cuali-cuali}
 
 \paragraph{Conclusión:} A partir de la tabla de contingencia no se observa una relación clara entre trabajar y la cantidad de inasistencias. Si bien entre los estudiantes que trabajan hay una mayor cantidad de casos con dos o más faltas, una tendencia similar también se presenta entre quienes no trabajan. En consecuencia, con estos datos no puede afirmarse que tener trabajo impacte de manera significativa en la regularidad de asistencia de los estudiantes.
 
@@ -51,14 +47,10 @@ Este tipo de análisis se utiliza cuando ambas variables son cuantitativas, lo q
 \end{itemize}
 \newpage
 \TablaDeDatos
-\input{tables/bivariable/Cuantitativa_Cuantitativa}
+\input{tables/bivariable-cuanti-cuanti}
 
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\linewidth]{./img/bivariable_cuanti_cuanti.png}
-\caption{Relación entre horas de estudio semanal y puntaje en matemáticas.}
-\end{figure}
+\input{figures/bivariable-cuanti-cuanti}
 
 \paragraph{Análisis bivariado (relación entre variables)}.
 
@@ -69,38 +61,28 @@ Este tipo de análisis se utiliza cuando ambas variables son cuantitativas, lo q
 \subsection{Cuantitativa-Cualitativa}
 Este tipo de análisis se utiliza cuando una variable es cuantitativa y la otra es cualitativa, lo que permite evaluar cómo varía la variable cuantitativa en función de las categorías de la variable cualitativa. En este caso, se analizará la relación entre \Variable{'gender'} y \Variable{'biology\_score'}.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=1\linewidth]{./img/cuali-cuanti.png}
-\end{figure}
+\input{tables/bivariable-genero-biologia}
 
 
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|l|c|c|}
-\hline
+\begin{tabular}{lcc}
+\toprule
 \textbf{Métrica} & \textbf{Femenino (female)} & \textbf{Masculino (male)} \\
-\hline
+\midrule
 Tamaño de submuestra ($n$) & 58 estudiantes & 53 estudiantes \\
-\hline
 Media aritmética ($\bar{x}$) & 83.62 puntos & 84.17 puntos \\
-\hline
 Desvío estándar ($S$) & 2.61 puntos & 2.26 puntos \\
-\hline
 Coeficiente de variación ($cv\%$) & 3.12\% & 2.68\% \\
-\hline
+\bottomrule
 \end{tabular}
 \caption{Comparación de métricas muestrales por género.}
 \end{table}
 
 \paragraph{Interpretación:} La distribución del grupo es equilibrada, ya que ambos géneros presentan tamaños de submuestra similares. El rendimiento promedio es muy parecido entre mujeres y hombres, con una diferencia menor a 0.6 puntos. Además, la dispersión de las notas es baja en ambos casos, y los coeficientes de variación indican que los grupos son altamente homogéneos ($cv\% < 20\%$).
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.90\linewidth]{./img/bivariable_cuali_cuanti.png}
-\caption{Relación entre género y puntaje en biología.}
-\end{figure}
+\input{figures/bivariable-cuali-cuanti}
 
 \paragraph{Detalle para la imagen}
 \begin{itemize}

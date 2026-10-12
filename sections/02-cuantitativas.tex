@@ -7,18 +7,13 @@ anterior, en este caso podremos desarrollar una análisis más rico.
 La variable a analizar es \Variable{'absence\_days'}.
 
 \TablaDeDatos
-\input{tables/cuantitativa/discreta.tex}
+\input{tables/cuantitativa-discreta}
 
 \AnalisisDescriptivo
-\input{tables/cuantitativa/analisis_discreta.tex}
+\input{tables/cuantitativa-discreta-analisis}
 
 \TituloGrafico{ausencias}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{img/discreta.png}
-    \caption{Gráfico de torta para la variable \Variable{absence\_days}.}
-    \label{fig:grafico_absence_days}
-\end{figure}
+\input{figures/ausencias-torta}
 
 \Interpretacion
 Este análisis evalúa el ausentismo, registrando una asistencia general bastante regular y un alto
@@ -32,7 +27,7 @@ mínima, ya que la brecha total entre el que más faltó y el que menos lo hizo 
 La variable a analizar es \Variable{'math\_score'}.
 
 \AnalisisDescriptivo
-\input{tables/cuantitativa/analisis_continua.tex}
+\input{tables/cuantitativa-continua-analisis}
 
 \Interpretacion
 La moda y la mediana son cercanas a la media, lo que indica que la mayoría de los estudiantes obtuvo
@@ -46,22 +41,17 @@ Los resultados previamente mostrados surgen de un análisis valor a valor. Nos p
 una nueva perspectiva, agrupando los puntajes en intervalos y comparar los resultados de ambos
 análisis.
 
-\input{tables/cuantitativa/analisis_continua_intervalos.tex}
+\input{tables/cuantitativa-intervalos}
 \PalabraClave{Media}: 85,34 -
 \PalabraClave{Varianza}: 10,06 -
 \PalabraClave{Desvío estándar}: 3,23 -
 \PalabraClave{CV}: 3,78\%
 
 \TituloGrafico{Histograma con intervalos}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{img/intervalos.png}
-    \caption{Gráfico de barras para la variable \Variable{math\_score} agrupada en intervalos.}
-    \label{fig:grafico_math_score_intervalos}
-\end{figure}
+\input{figures/intervalos-histograma}
 
 \subsubsection{Tabla comparativa}
-\input{tables/cuantitativa/comparativa_continua.tex}
+\input{tables/cuantitativa-comparativa}
 
 \subsubsection{Conclusión}
 Al comparar ambos análisis, se observa que las medidas obtenidas a partir de los datos agrupados son
