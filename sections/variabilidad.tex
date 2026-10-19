@@ -1,0 +1,213 @@
+\section{Variabilidad muestral y Teorema Central del Límite}
+Muchas veces no podemos (ni debemos) encuestar o examinar a toda la población: tomamos una
+muestra (un grupo chico de alumnos) para intentar inferir cómo le fue al conjunto completo. Aquí
+surge una pregunta clave: si elegimos varios grupos de alumnos al azar, ¿todos los grupos tendrán
+el mismo promedio? La respuesta es no, y a ese fenómeno lo llamamos variabilidad muestral. En
+esta sección simularemos este comportamiento sobre la variable \Variable{chemistry\_score}, que
+corresponde al examen de química de los estudiantes.
+
+\AnalisisDescriptivo
+Para montar la simulación necesitamos los parámetros reales de la población:
+\input{tables/variabilidad/parametros_quimica.tex}
+
+\subsection{La simulación}
+La idea es sencilla: elegimos grupos (muestras) de distinto tamaño, calculamos el promedio de
+cada grupo y observamos cómo se comportan esos promedios. Repetimos el experimento muchas veces
+para cada tamaño y comparamos los resultados. Para cuantificar cuánto deben dispersarse los
+promedios alrededor de la media real, la estadística utiliza el error estándar de la media:
+\begin{equation*}
+  \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}
+\end{equation*}
+\PalabraClave{Cómo se toman los datos:} Al crecer el tamaño del grupo $n$, el denominador
+aumenta y el error estándar se reduce: los promedios muestrales se ven obligados a apretarse
+alrededor del valor real de la población.
+
+\subsection{Grupos chicos ($n = 10$)}
+Seleccionamos 10 grupos de 10 alumnos cada uno y registramos sus promedios:
+
+\TablaDeDatos
+\input{tables/variabilidad/muestras_n10.tex}
+
+\PalabraClave{Lectura de la tabla:} Como son grupos chicos, los promedios están dispersos en un
+rango de 80,40 a 83,30. Al haber pocos alumnos, cualquier nota extrema pesa demasiado en el
+promedio y lo hace saltar. Aun así, el promedio global de estas 10 muestras da 81,39, rondando
+la media real (81,37).
+
+% --------------------------------------------------------------------------------------------------
+
+\subsection{Grupos medianos ($n = 20$)}
+Ampliamos el experimento a 20 grupos de 20 alumnos cada uno:
+
+\TablaDeDatos
+\input{tables/variabilidad/muestras_n20.tex}
+
+\PalabraClave{Lectura de la tabla:} Al agrandar el grupo, las notas altas y bajas empiezan a
+compensarse entre sí. Aunque el azar puede hacer que alguna tanda salga más movida (en esta
+simulación los promedios oscilaron entre 79,40 y 83,85), el promedio de medias da 81,56,
+manteniéndose muy cerca del parámetro real.
+
+% --------------------------------------------------------------------------------------------------
+
+\subsection{Grupos óptimos ($n = 30$)}
+Por último, simulamos 30 grupos de 30 alumnos cada uno, alcanzando el mínimo que establece la
+regla estadística para aplicar el Teorema Central del Límite:
+
+\TablaDeDatos
+\input{tables/variabilidad/muestras_n30.tex}
+
+\PalabraClave{Lectura de la tabla:} Al alcanzar el tamaño óptimo, el error estándar cae
+notablemente: el desvío de los promedios se reduce a 0,80 puntos, el más bajo de toda la
+simulación. El promedio global de las 30 muestras es 81,24, demostrando la convergencia que
+dicta el Teorema Central del Límite.
+
+\subsection{Cuadro resumen}
+Comparar los tres tamaños de grupo lado a lado permite ver el patrón completo de la simulación:
+
+\input{tables/variabilidad/resumen.tex}
+
+El desvío de los promedios observado en la simulación acompaña la tendencia que predice la
+teoría: a medida que crece el tamaño del grupo $n$, el error estándar teórico
+$\sigma / \sqrt{n}$ se reduce y los promedios se compactan alrededor de la media real
+$\mu = 81{,}37$. Los tres promedios globales (81,39; 81,56 y 81,24) caen todos a menos de
+0,20 puntos de la realidad, confirmando que la media muestral no sesga la estimación.
+
+% --------------------------------------------------------------------------------------------------
+
+\TituloGrafico{Promedios de cada muestra según el tamaño del grupo}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.7\textwidth,
+            height=7cm,
+            xlabel={Número de muestra},
+            ylabel={Promedio del grupo},
+            xmin=0.5, xmax=30.5,
+            ymin=79, ymax=84.2,
+            xtick={1,5,10,15,20,25,30},
+            ytick={79,80,81,82,83,84},
+            legend pos=south east,
+            legend style={font=\small},
+            grid=major,
+            grid style={gray!25},
+        ]
+            % Grupos de n = 10.
+            \addplot[only marks, mark=*, color=blue] coordinates {
+                (1,80.70) (2,80.80) (3,83.30) (4,80.40) (5,81.00)
+                (6,82.30) (7,80.70) (8,82.10) (9,80.50) (10,82.10)
+            };
+            \addlegendentry{$n = 10$}
+            % Grupos de n = 20.
+            \addplot[only marks, mark=square*, color=red!70!black] coordinates {
+                (1,83.10) (2,82.05) (3,80.35) (4,79.75) (5,83.70)
+                (6,81.60) (7,80.55) (8,82.05) (9,83.85) (10,82.45)
+                (11,80.20) (12,82.10) (13,82.95) (14,81.35) (15,82.40)
+                (16,79.40) (17,80.75) (18,80.00) (19,81.45) (20,81.15)
+            };
+            \addlegendentry{$n = 20$}
+            % Grupos de n = 30.
+            \addplot[only marks, mark=triangle*, color=green!60!black] coordinates {
+                (1,81.30) (2,80.67) (3,80.23) (4,81.77) (5,81.20)
+                (6,82.13) (7,81.80) (8,79.63) (9,80.70) (10,80.27)
+                (11,81.40) (12,81.50) (13,80.57) (14,81.27) (15,80.70)
+                (16,79.93) (17,82.73) (18,80.60) (19,82.03) (20,81.77)
+                (21,81.27) (22,81.00) (23,81.77) (24,82.40) (25,80.70)
+                (26,80.83) (27,83.00) (28,80.83) (29,81.33) (30,81.80)
+            };
+            \addlegendentry{$n = 30$}
+            % Media real de la población.
+            \addplot[dashed, thick, black] coordinates {(0.5,81.37) (30.5,81.37)};
+            \addlegendentry{$\mu = 81{,}37$}
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Promedio de cada una de las 60 muestras simuladas. Los puntos representan los
+    promedios muestrales según el tamaño del grupo y la línea punteada marca la media real de la
+    población $\mu = 81{,}37$.}
+    \label{fig:variabilidad_promedios}
+\end{figure}
+
+% --------------------------------------------------------------------------------------------------
+
+\TituloGrafico{Distribución de los promedios muestrales}
+Otra forma de ver el fenómeno es dibujar la distribución teórica de los promedios para cada
+tamaño de grupo. Como la varianza de los promedios es $\sigma^2 / n$, cada campana se dibuja
+con centro en la media real y con un error estándar igual a $\sigma / \sqrt{n}$:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        % Función de densidad normal con parámetros configurables.
+        \pgfmathdeclarefunction{dens}{3}{%
+          \pgfmathparse{1/(#3*sqrt(2*pi))*exp(-((#1-#2)^2)/(2*(#3)^2))}%
+        }
+        \begin{axis}[
+            width=0.7\textwidth,
+            height=7cm,
+            xlabel={Promedio muestral},
+            ylabel={Densidad de probabilidad},
+            xmin=75, xmax=88,
+            ymin=0, ymax=0.5,
+            xtick={75,77,79,81,83,85,87},
+            ytick=\empty,
+            axis lines=left,
+            samples=200,
+            legend pos=north east,
+            legend style={font=\small},
+            clip=false,
+        ]
+            % Campana para n = 10 (error estándar 1,66).
+            \addplot[blue, thick, domain=75:88] {dens(x,81.37,1.6634)};
+            \addlegendentry{$n = 10$ ($\sigma_{\bar{x}} = 1{,}66$)}
+            % Campana para n = 20 (error estándar 1,18).
+            \addplot[red!70!black, thick, domain=75:88] {dens(x,81.37,1.1762)};
+            \addlegendentry{$n = 20$ ($\sigma_{\bar{x}} = 1{,}18$)}
+            % Campana para n = 30 (error estándar 0,96).
+            \addplot[green!60!black, thick, domain=75:88] {dens(x,81.37,0.9603)};
+            \addlegendentry{$n = 30$ ($\sigma_{\bar{x}} = 0{,}96$)}
+            % Media real de la población.
+            \draw[dashed, gray] (axis cs:81.37,0) -- (axis cs:81.37,0.47)
+                node[above, black] {$\mu = 81{,}37$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Distribución teórica de los promedios muestrales para los tres tamaños de grupo. A
+    mayor tamaño $n$, la campana se vuelve más alta y delgada, concentrándose en la media real.}
+    \label{fig:variabilidad_campanas}
+\end{figure}
+
+\PalabraClave{Análisis de las campanas:}
+\begin{itemize}
+  \item \textbf{La campana de $n = 10$ (azul):} Es la más ancha y baja. Sus promedios pueden
+    alejarse de la media real hasta 1,66 puntos en promedio, reflejando la inestabilidad de los
+    grupos chicos.
+  \item \textbf{La campana de $n = 30$ (verde):} Es la más alta y delgada. Toda su masa se
+    concentra en una franja estrecha alrededor de 81,37, lo que significa que casi cualquier
+    muestra de ese tamaño dará un promedio muy cercano a la realidad.
+  \item \textbf{Todas comparten el centro:} Las tres campanas están ancladas en la misma media
+    $\mu = 81{,}37$. Ningún tamaño de grupo cambia el promedio esperado; solo cambia la
+    precisión con la que se alcanza.
+\end{itemize}
+
+\subsection{¿Qué nos demuestra el Teorema Central del Límite?}
+\PalabraClave{El promedio de los promedios no miente:} Si tomamos muchas muestras, la media de
+todas ellas siempre va a converger hacia la media real de toda la población. En nuestra
+simulación, los tres promedios globales dieron 81,39; 81,56 y 81,24, todos dentro de 0,20
+puntos de los 81,37 reales.
+
+\PalabraClave{A mayor grupo, mayor precisión:} Cuanto más grande sea la muestra que elijamos,
+menor será la dispersión (el error estándar). Como muestra la fórmula
+$\sigma_{\bar{x}} = \sigma / \sqrt{n}$, al pasar de 10 a 30 alumnos el error cae de 1,66 a
+0,96 puntos: la campana se vuelve más alta y delgada, concentrándose en el valor real.
+
+\PalabraClave{La forma siempre tiende a la normalidad:} No importa si las notas originales de
+la escuela están amontonadas de forma extraña o asimétrica; los promedios de los grupos grandes
+siempre se van a ordenar dibujando una campana de Gauss perfecta y simétrica.
+
+\Interpretacion
+Este tema nos demuestra que la media muestral $\bar{x}$ es el mejor estimador posible para
+conocer la realidad de los alumnos: no solo no genera sesgo (sus promedios rondan siempre el
+valor real), sino que, a mayor tamaño del grupo, su error de estimación se reduce de forma
+controlada y predecible. En la práctica, esto justifica que la institución pueda
+evaluar el nivel de química de toda la escuela confiando en grupos de 30 estudiantes, sin
+necesidad de examinar a los 111 alumnos.
+
+
