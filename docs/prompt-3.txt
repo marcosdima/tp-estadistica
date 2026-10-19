@@ -1,0 +1,43 @@
+Intervalos de Confianza
+
+En la práctica, una muestra nunca es perfecta. Si elegimos un grupo de alumnos al azar, su promedio va a variar respecto al promedio real de todo el colegio. Por eso, dar un solo número no es suficiente para tomar decisiones institucionales seguras.
+La solución de la estadística inferencial es la Estimación por Intervalos de Confianza. En lugar de arriesgarnos con un único resultado, calculamos un rango de valores (con un límite mínimo y uno máximo) que tiene una alta probabilidad matemática de "atrapar" el verdadero promedio de la población.
+La calidad de este rango depende de dos factores clave:
+• El Nivel de Confianza (1 - (\alpha )): Nuestra certeza matemática (habitualmente 90% o 95%). A mayor confianza, más ancho debe ser el intervalo para asegurar que no dejamos el dato real afuera.
+• El Tamaño de la Muestra ((n)): Cuantos más alumnos evaluamos, menor es el error estándar. Esto hace que la campana sea más angosta y la estimación sea muchísimo más exacta.
+
+Análisis estadístico:
+Métrica Estadística	Valor	Significado Práctico			
+Total de Datos (N)	111	Cantidad total de calificaciones registradas en el curso.			
+Nota Mínima	75	La calificación más baja obtenida en el examen de química.			
+Nota Máxima	90	La calificación más alta obtenida en el examen de química.			
+Rango	15	La distancia total entre la nota más baja y la más alta.			
+Media (μ)	81,37	El promedio real de todo el curso (el centro de gravedad).			
+Mediana	80	El valor central: el 50% del curso sacó 80 o menos.			
+Moda	78	La nota más común (se repite 34 veces en la lista).			
+Desviación Estándar (σ)	5,26	Qué tan dispersas están las notas individuales frente al promedio.			
+Varianza (σ²)	27,62	Medida matemática de la dispersión de los datos.			
+
+Puesta a prueba:
+Para poner a prueba la teoría en el examen de química (Media Real (\mu = 81.37) y (\sigma = 5.26)), realizamos una simulación seleccionando grupos de alumnos al azar con tres tamaños diferentes ((n=10), (n=20) y (n=30)). A cada grupo se le calculó su intervalo al 95% de confianza.
+Lo que revelan los gráficos y las curvas de la simulación es lo siguiente:
+• Muestra Pequeña ((n = 10)) | Curva Verde (Baja y Ancha):
+    • Comportamiento: Los promedios individuales saltan de forma muy inestable (varían entre 80.4 y 83.3 puntos).
+    • Intervalo en el Gráfico: Da una curva muy abierta que genera un margen de error grande de (\pm ) 3.26 puntos.
+    • Resultado: Precisión muy baja. Los grupos chicos no logran compensar las notas extremas.
+• Tamaño Medio ((n = 20)) | Curva Azul (Intermedia):
+    • Comportamiento: Al promediar más alumnos, los extremos se empiezan a compensar. El rango de los promedios se achica (79.4 a 83.8).
+    • Intervalo en el Gráfico: La campana se vuelve un poco más alta y angosta. El margen de error baja a (\pm ) 2.31 puntos.
+    • Resultado: Precisión baja/aceptable.
+• Tamaño Óptimo ((n = 30)) | Curva Púrpura (Alta y Angosta):
+    • Comportamiento: Los promedios individuales se compactan fuertemente en el centro (79.6 a 82.7), amontonándose en el valor real.
+    • Intervalo en el Gráfico: La campana es notablemente más puntiaguda y estrecha. Consigue el menor margen de error de la simulación: apenas (\pm ) 1.88 puntos.
+    • Resultado: Precisión óptima. Alcanza la convergencia absoluta que dicta el Teorema Central del Límite.
+
+Conclusión:
+El gráfico comparativo de campanas demuestra visualmente la regla de oro: A mayor tamaño de muestra ((n)), el intervalo de confianza se vuelve más angosto. Esto significa que logramos una mejor estimación de la verdadera media poblacional reduciendo el error al mínimo.
+									
+Tamaño Muestra (n)	Nivel Confianza	Valor Crítico (Z)	Error Estándar (σ/√n)	Margen Error (E)	Límite Inferior	Límite Superior	Rango de Medias Muestrales	Promedio Global Obtenido	Comportamiento Estadístico
+n = 10	95%	1,96	1,663	3,26	78,11	84,63	80,4 a 83,3	81,39	Grupos chicos. Mayor dispersión y oscilación de promedios.
+n = 20	95%	1,96	1,176	2,31	79,06	83,68	79,4 a 83,8	81,56	Estable. Los valores extremos se compensan mejor.
+n = 30	95%	1,96	0,96	1,88	79,49	83,25	79,6 a 82,7	81,24	Óptimo. Convergencia absoluta según el Teorema Central del Límite.

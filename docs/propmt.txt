@@ -1,0 +1,34 @@
+Introducción: ¿Qué es la Distribución Normal? 
+
+En estadística, este comportamiento natural en forma de montaña se conoce como distribución normal o campana de Gauss. Es el modelo matemático más importante para analizar fenómenos educativos y sociales debido a que se define por completo con solo dos datos:
+Al ordenar las notas, notamos que la mayoría de los estudiantes se concentran alrededor de una nota central de 82.54 puntos, y que a medida que nos alejamos de ese centro (hacia notas excelentes o notas muy bajas), la cantidad de alumnos disminuye de forma pareja.
+La Media ((\mu = 82.54)): El centro exacto de la campana, que marca el rendimiento promedio.
+La Desviación Estándar ((\sigma = 3.85)): La medida que nos dice qué tan dispersas o qué tan agrupadas están las notas respecto al promedio.
+El análisis estadístico aplicado permite extraer las siguientes conclusiones clave para la gestión educativa:
+• Rendimiento general sólido y homogéneo: El promedio del grupo se sitúa en 82.54 puntos con una dispersión baja de 3.85 puntos. Esto demuestra que el nivel de inglés de los alumnos es, en general, alto y bastante parejo, sin registrarse desniveles extremos o alarmantes en la mayoría del aula.
+• Identificación temprana de alumnos en riesgo: Gracias al modelo, determinamos que existe un 25.46% de probabilidad de que un estudiante obtenga una nota menor a 80 puntos. Esta métrica permite a la institución anticipar qué porcentaje del grupo podría requerir tutorías o apoyo pedagógico.
+• Criterio de becas justo y transparente: Para cumplir con la condición de premiar únicamente al 23% de los mejores promedios, la matemática definió que la nota de corte exacta debe ser 85.50 puntos. Utilizar este umbral garantiza un criterio de selección objetivo, basado estrictamente en la distribución del mérito del grupo.
+• Concentración del rendimiento: Casi la mitad de los estudiantes (47.27%) se concentra en el rango de calificaciones entre 77 y 83 puntos. Esto confirma la alta densidad de alumnos con un desempeño estándar-bueno, característico de una distribución normal bien balanceada.
+
+Analisis descriptivo: 
+Cantidad de datos (n): 111 alumnos                                                
+Media aritmética (μ): 82.54 (este es el promedio central de la campana)
+Desviación estándar poblacional (σ): 3.85 (mide qué tan dispersas están las notas)
+Desviación estándar muestral (s): 3.87 (si consideramos los datos como una muestra)
+Calificación mínima: 77.                                                
+Calificación máxima: 92.       
+
+
+Preguntas
+¿Cuál es la probabilidad de que un estudiante elegido al azar obtenga una calificación menor a 80 puntos?
+Z = (80-82.54) / 3.85 = -254/385= -0.66
+La probabilidad de que un estudiante obtenga una calificación menor a 80 puntos es de 0.2546 (o 25.46%).
+
+¿Cuál es la probabilidad de que un estudiante elegido al azar obtenga una calificación mayor a 90 puntos?
+P(X>90) = Z(90-82.54) / 3.85 = 764/385 = 1,94
+La probabilidad de que un estudiante obtenga una calificación mayor a 90 puntos es de 0.0262 (o 2.62%).		
+
+¿Cuál es la probabilidad de que un estudiante elegido al azar obtenga una calificación entre 77 y 83?
+P(77 < X < 83) = P(-1.44 < Z < 0.12) = P(Z < 0.12) - P(Z < -1.44) = 0.5477 - 0.075 = 0.4727
+z1 = 77 - 82.54 / 3.85 = -1.44			z2 = 83 - 82.54 / 3.85 = -1.44 = 0.12		
+Conclusion: Eligiendo la nota de ingles de un estudiante al azar, la probabilidad de que la misma este entre 77 y 83 es de un 47,27%. 

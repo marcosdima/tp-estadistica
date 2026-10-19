@@ -1,0 +1,25 @@
+Pruebas de Hipótesis: Introducción
+
+Una Prueba de Hipótesis es un procedimiento estadístico estándar para tomar una decisión objetiva entre dos afirmaciones opuestas sobre una población:
+• Hipótesis Nula ((H{0})): Es la afirmación que se asume como verdadera y se somete a prueba. Siempre incluye el signo igual.
+• Hipótesis Alternativa ((H{1})): Es la sospecha o el resultado deseado por el investigador. Determina hacia qué lado de la campana se ubica la zona de rechazo.
+Para tomar la decisión, el investigador define un nivel de significación ((\alpha )) (usualmente del 5%), que delimita la zona de rechazo mediante un valor crítico ((Z{c})). Si el estadístico de prueba ((Z{0})) calculado con los datos muestrales cae dentro de esa región crítica, la hipótesis nula se rechaza. 
+
+Puesta en práctica
+La cátedra de Física afirma que el puntaje promedio histórico de los alumnos es de 82 puntos. Evaluamos una muestra aleatoria de (n = 50) estudiantes para contrastar esta afirmación frente a nuestra sospecha de que el promedio real es mayor.
+Planteo Estadístico del Problema
+
+• (H_0: \mu \leq 82) (Afirmación histórica de la cátedra)
+• (H_1: \mu > 82) (Sospecha del investigador - Prueba Unilateral Derecha)
+• Datos Muestrales: Media calculada (\bar{x} = 83.46) puntos | Desviación estándar (\sigma = 3.5) puntos
+• Criterio de Decisión: Con (\alpha = 0.05) (5%), el Valor Crítico es (Zc = 1.645).
+
+Cálculo del Estadístico de Prueba ((Z{0}))
+
+(Z{0}=\frac{={x}-\mu {0}}{\frac{\sigma }{\sqrt{n}}}=\frac{83.46-82}{\frac{3.5}{\sqrt{50}}}=\frac{1.46}{0.495}=\mathbf{2.95})
+
+Evaluación y Conclusión
+
+• Regla de decisión: Si (Z_0 > Zc \rightarrow) Se rechaza (H{0}).
+• Resultado: Dado que el estadístico obtenido ((2.95)) es mayor que el valor crítico ((1.645)), el dato cae profundamente dentro de la zona de rechazo.
+• Conclusión del Estudio: Con un nivel de significación del 5%, existe evidencia estadística suficiente para rechazar la hipótesis nula. Concluimos que el puntaje promedio en física de los estudiantes es significativamente superior a los 82 puntos históricos, validando por completo nuestra sospecha inicial.

@@ -1,0 +1,84 @@
+Variabilidad Muestral y el Teorema Central del Límite
+Muchas veces debemos tomar una muestra (un grupo chico) para intentar adivinar o "inferir" cómo le fue a toda la población. Aquí es donde surge una pregunta clave: Si elegimos varios grupos de alumnos al azar, ¿todos los grupos tendrán el mismo promedio?. La respuesta es no, y a ese fenómeno lo llamamos variabilidad muestral.
+Para entender cómo funciona esto, el informe analiza el examen de química, que cuenta con una media real ((\mu )) de 81.37 puntos y una desviación estándar ((\sigma )) de 5.26. A partir de estos datos, se realizó una simulación matemática tomando grupos de diferentes tamaños ((n)) para observar cómo cambian sus promedios:
+• Grupos chicos ((n = 10) alumnos): Los promedios de cada grupo saltan mucho, variando de forma inestable entre 80.4 y 83.3 puntos. Al haber pocos alumnos, cualquier nota extrema afecta demasiado al resultado.
+• Grupos medianos ((n = 20) alumnos): Al agrandar el grupo, las notas altas y bajas empiezan a compensarse entre sí. Los promedios se vuelven más estables y cercanos a la realidad.
+• Grupos óptimos ((n = 30) alumnos): Al alcanzar este tamaño, ocurre la magia de la estadística que dicta el Teorema Central del Límite. El error se reduce al mínimo y los promedios de los grupos se compactan fuertemente alrededor de la media real de la escuela, arrojando un promedio global casi perfecto de 81.24 puntos.
+
+¿Qué nos demuestra este teorema en la práctica?
+El promedio de los promedios no miente: Si tomamos muchas muestras, la media de todas ellas siempre va a ser igual a la media real de toda la población.
+A mayor grupo, mayor precisión: Cuanto más grande sea la muestra que elijamos, menor será la dispersión (el error estándar). La "campana" se vuelve más alta y delgada, concentrándose en el valor real.
+La forma siempre tiende a la normalidad: No importa si las notas originales de la escuela están amontonadas de forma extraña o asimétrica; los promedios de los grupos grandes siempre se van a ordenar dibujando una campana de Gauss perfecta y simétrica.
+Este tema nos demuestra que la media muestral ((={x})) es el mejor estimador posible para conocer la realidad de los alumnos.
+
+Muestra	Notas seleccionadas Tamaño n = 10	Promedio	
+1	86, 78, 82, 78, 82, 86, 78, 75, 80, 82	80,7	 
+2	86, 78, 86, 80, 75, 85, 75, 75, 82, 86	80,8	
+3	87, 86, 87, 80, 78, 85, 90, 75, 90, 75	83,3	
+4	80, 80, 75, 82, 85, 75, 86, 80, 86, 75	80,4	
+5	75, 78, 78, 78, 78, 90, 78, 87, 90, 78	81	
+6	80, 87, 78, 82, 90, 86, 75, 80, 87, 78	82,3	
+7	88, 78, 80, 75, 80, 80, 78, 80, 82, 86	80,7	
+8	78, 78, 90, 82, 87, 78, 80, 90, 78, 80	82,1	
+9	78, 90, 78, 80, 78, 80, 82, 86, 78, 75	80,5	
+10	78, 78, 80, 90, 86, 78, 87, 87, 75, 82	82,1	
+
+Al ser grupos chicos, los promedios están dispersos en un rango de 80,4 a 83,3. El promedio global de estas 10 muestras da 81,39, rondando la media real (81,37).
+
+Muestra	Notas seleccionadas Tamaño n = 20	Promedio	
+1	78, 85, 87, 78, 78, 88, 78, 86, 75, 82, 78, 87, 78, 90, 90, 78, 90, 80, 90, 86	83,1	
+3	90, 80, 78, 86, 75, 87, 75, 80, 80, 78, 78, 80, 78, 80, 78, 75, 80, 78, 86, 85	80,3	
+4	78, 78, 78, 78, 75, 90, 78, 75, 80, 80, 82, 75, 78, 75, 75, 86, 78, 80, 86, 90	79,8	
+5	78, 90, 82, 90, 90, 75, 87, 90, 85, 80, 90, 90, 80, 78, 78, 75, 90, 90, 78, 78	83,7	
+6	78, 80, 87, 78, 78, 86, 90, 75, 82, 90, 75, 75, 78, 75, 78, 82, 78, 87, 90, 90	81,6	
+7	82, 78, 88, 75, 82, 80, 78, 80, 78, 80, 90, 75, 87, 80, 78, 90, 78, 75, 82, 75	80,5	
+8	86, 90, 78, 90, 80, 90, 78, 90, 80, 80, 80, 86, 86, 75, 75, 86, 80, 75, 78, 78	82	
+9	80, 90, 90, 78, 90, 85, 90, 90, 88, 75, 87, 78, 86, 75, 82, 90, 75, 90, 80, 78	83,8	
+10	80, 78, 90, 78, 86, 90, 78, 90, 90, 78, 78, 90, 78, 75, 80, 80, 90, 85, 75, 80	82,5	
+11	75, 75, 80, 86, 78, 78, 75, 86, 86, 80, 80, 78, 78, 90, 75, 75, 87, 82, 82, 78	80,2	
+12	87, 78, 80, 78, 80, 80, 75, 86, 75, 78, 87, 82, 90, 80, 90, 80, 90, 78, 78, 90	82,1	
+13	80, 78, 90, 75, 87, 87, 80, 90, 80, 78, 80, 87, 86, 78, 82, 90, 78, 78, 90, 85	83	
+14	78, 90, 78, 78, 75, 78, 78, 78, 86, 86, 80, 78, 87, 80, 78, 78, 86, 75, 90, 90	81,3	
+15	90, 90, 90, 78, 80, 75, 80, 86, 80, 80, 80, 80, 78, 78, 90, 87, 75, 87, 78, 86	82,4	
+16	78, 75, 78, 78, 82, 75, 75, 75, 78, 86, 75, 78, 87, 78, 90, 75, 82, 87, 78, 78	79,4	
+17	90, 78, 87, 80, 78, 80, 90, 75, 78, 75, 78, 90, 80, 78, 80, 80, 75, 90, 75, 78	80,8	
+18	75, 78, 78, 80, 75, 85, 90, 75, 80, 87, 80, 86, 75, 87, 78, 78, 78, 75, 80, 80	80	
+19	87, 75, 80, 82, 80, 82, 86, 78, 86, 78, 80, 80, 75, 80, 90, 78, 78, 90, 86, 78	81,5	
+20	82, 80, 86, 75, 80, 86, 80, 90, 78, 78, 78, 78, 86, 80, 75, 78, 75, 78, 90, 90	81,2	
+
+Al promediar más alumnos (n = 20), los extremos se compensan mejor. Aunque hay más intentos (20 muestras), el promedio de medias da 81,56, manteniéndose muy estable frente al parámetro real.
+2	80, 78, 87, 80, 90, 86, 75, 80, 78, 90, 75, 78, 82, 87, 75, 80, 82, 90, 78, 90	82
+
+Muestra	Notas seleccionadas Tamaño n = 30	Promedio	 
+1	87, 78, 87, 80, 90, 75, 78, 78, 87, 80, 82, 78, 78, 80, 78, 78, 75, 90, 86, 78, 80, 78, 90, 90, 78, 80, 78, 82, 85, 75	81,3	
+2	75, 90, 75, 78, 80, 85, 75, 86, 75, 78, 78, 80, 80, 87, 75, 86, 86, 78, 78, 90, 80, 78, 78, 75, 75, 78, 86, 90, 90, 75	80,7	
+3	75, 75, 75, 78, 78, 90, 75, 87, 78, 78, 87, 80, 75, 75, 75, 86, 87, 75, 85, 90, 78, 86, 78, 75, 80, 75, 80, 86, 80, 85	80,2	
+4	82, 78, 78, 78, 78, 80, 78, 90, 75, 90, 78, 78, 75, 90, 78, 82, 82, 87, 75, 86, 80, 90, 86, 90, 78, 90, 80, 75, 80, 86	81,8	
+5	86, 90, 80, 80, 86, 86, 78, 75, 75, 82, 82, 75, 80, 85, 90, 75, 75, 80, 75, 78, 78, 78, 90, 80, 90, 90, 80, 87, 75, 75	81,2	
+6	78, 78, 80, 80, 90, 87, 90, 80, 75, 86, 86, 78, 86, 80, 82, 90, 75, 90, 78, 78, 90, 82, 90, 86, 80, 78, 75, 78, 80, 78	82,1	
+7	75, 78, 78, 90, 75, 82, 78, 90, 90, 82, 75, 78, 78, 75, 80, 78, 86, 85, 80, 75, 78, 87, 80, 90, 90, 75, 90, 86, 90, 80	81,8	
+8	75, 78, 80, 80, 78, 75, 86, 78, 78, 80, 75, 78, 75, 78, 75, 78, 78, 86, 86, 80, 90, 90, 78, 80, 78, 78, 75, 90, 75, 78	79,6	
+9	86, 75, 90, 78, 78, 82, 78, 80, 80, 86, 78, 78, 78, 86, 80, 78, 78, 75, 75, 87, 75, 87, 90, 80, 80, 82, 75, 78, 80, 88	80,7	
+10	90, 90, 75, 75, 78, 78, 78, 80, 78, 78, 78, 78, 75, 78, 90, 80, 86, 87, 85, 82, 78, 75, 75, 90, 80, 75, 75, 75, 80, 86	80,3	
+11	87, 75, 78, 82, 75, 75, 78, 90, 78, 90, 86, 78, 78, 86, 78, 90, 75, 78, 86, 85, 78, 90, 87, 86, 78, 78, 82, 75, 80, 80	81,4	
+12	75, 78, 80, 86, 82, 86, 78, 75, 78, 90, 78, 78, 87, 90, 87, 75, 75, 75, 80, 90, 75, 80, 80, 78, 80, 86, 80, 90, 87, 86	81,5	
+13	78, 87, 80, 78, 90, 78, 78, 78, 87, 86, 88, 75, 75, 82, 90, 78, 78, 80, 75, 78, 82, 87, 80, 75, 80, 78, 86, 80, 75, 75	80,6	
+14	80, 87, 86, 86, 90, 75, 80, 75, 78, 78, 75, 82, 78, 80, 90, 90, 78, 78, 75, 78, 90, 90, 90, 78, 78, 80, 80, 75, 78, 80	81,3	
+15	75, 80, 78, 75, 75, 86, 75, 80, 90, 78, 90, 75, 75, 86, 80, 87, 90, 90, 78, 78, 75, 75, 80, 78, 82, 90, 86, 78, 78, 78	80,7	
+16	80, 90, 80, 75, 78, 80, 80, 75, 78, 78, 80, 86, 82, 82, 78, 90, 87, 78, 80, 75, 78, 80, 75, 78, 75, 78, 75, 82, 80, 85	79,9	
+17	90, 82, 87, 80, 78, 75, 80, 80, 75, 90, 86, 90, 78, 90, 90, 78, 86, 78, 82, 85, 75, 78, 75, 75, 87, 87, 87, 82, 90, 86	82,7	
+18	78, 75, 78, 80, 75, 86, 87, 78, 86, 78, 80, 85, 82, 80, 80, 80, 78, 78, 80, 75, 86, 90, 78, 75, 87, 78, 78, 75, 86, 86	80,6	
+19	90, 80, 78, 78, 80, 86, 75, 78, 80, 78, 87, 90, 82, 86, 78, 80, 78, 87, 86, 86, 78, 75, 87, 87, 78, 90, 90, 75, 80, 78	82	
+20	80, 82, 78, 78, 75, 78, 82, 80, 90, 75, 78, 88, 90, 90, 86, 78, 78, 78, 90, 86, 75, 78, 80, 75, 85, 90, 80, 80, 80, 90	81,8	
+21	78, 90, 75, 86, 80, 90, 80, 87, 75, 80, 75, 90, 90, 78, 82, 80, 78, 87, 78, 78, 78, 80, 90, 75, 78, 80, 75, 87, 80, 78	81,3	
+22	90, 86, 75, 78, 75, 75, 80, 86, 75, 75, 87, 90, 82, 90, 90, 75, 78, 80, 78, 78, 87, 78, 80, 78, 78, 78, 82, 90, 78, 78	81	
+23	75, 87, 78, 80, 82, 87, 86, 75, 90, 80, 78, 78, 75, 78, 90, 78, 87, 86, 90, 78, 80, 87, 90, 78, 75, 75, 80, 78, 90, 82	81,8	
+24	78, 87, 75, 78, 86, 82, 90, 80, 78, 78, 78, 78, 87, 90, 78, 82, 90, 87, 90, 87, 78, 75, 80, 86, 75, 75, 90, 86, 78, 90	82,4	
+25	80, 78, 82, 78, 75, 90, 87, 86, 90, 78, 90, 80, 78, 78, 90, 75, 78, 82, 75, 78, 90, 80, 75, 75, 75, 80, 90, 75, 78, 75	80,7	
+26	86, 75, 75, 78, 78, 86, 80, 90, 80, 82, 75, 75, 80, 78, 90, 75, 80, 86, 78, 80, 90, 78, 75, 75, 82, 86, 82, 87, 85, 78	80,8	
+27	78, 80, 80, 90, 86, 80, 78, 78, 75, 80, 78, 90, 86, 78, 90, 86, 87, 88, 78, 86, 87, 78, 75, 90, 87, 80, 86, 82, 87, 86	83	
+28	78, 75, 87, 75, 80, 80, 87, 88, 78, 80, 75, 90, 90, 90, 75, 80, 75, 78, 78, 78, 75, 85, 75, 90, 80, 86, 78, 86, 75, 78	80,8	
+29	80, 90, 75, 75, 80, 75, 78, 88, 80, 87, 86, 78, 78, 80, 90, 82, 86, 90, 86, 78, 87, 82, 78, 78, 75, 80, 85, 80, 78, 75	81,3	
+30	86, 75, 87, 90, 85, 78, 90, 75, 90, 78, 80, 75, 80, 87, 80, 90, 78, 78, 75, 75, 90, 90, 75, 78, 87, 75, 82, 90, 75, 80	81,8	
+
+Al alcanzar el tamaño óptimo de la regla estadística (n = 30), el error estándar cae notablemente. Los promedios individuales se compactan en la zona más estrecha de toda la simulación, dando un promedio global de 81,24, demostrando la convergencia absoluta que dicta el Teorema Central del Límite.

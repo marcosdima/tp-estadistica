@@ -1,0 +1,38 @@
+Regresión Lineal Simple y Correlación
+
+Cuando trabajamos con dos variables cuantitativas a la vez (datos bivariados), el objetivo cambia: ya no miramos un solo grupo, sino que buscamos saber si una variable se relaciona con la otra, en qué sentido y con qué intensidad. Para esto usamos dos herramientas esenciales del material:
+El Coeficiente de Correlación de Pearson ((r)): Mide la fuerza de la relación entre -1 y +1.
+La Regresión Lineal (Mínimos Cuadrados): Encuentra la ecuación de la recta ((\hat{y} = b_0 + b_1x)) que mejor se ajusta a los puntos para hacer predicciones precisas
+
+Regresión Lineal: Horas de Estudio vs. Puntaje
+
+Métrica	Horas de Estudio (x)	Puntaje Matemático (y)
+Sumatoria	206	2519
+Promedio (Media)	6,87	83,97
+Varianza (S²)	2,12	17,34
+Desviación Estándar (S)	1,46	4,16
+Coef. Variación (CV)	21,20%	4,96%
+		
+Al analizar la muestra de (n = 30) alumnos para evaluar el impacto de las Horas de Estudio Semanal ((x)) sobre el Puntaje Matemático ((y)), los datos reales arrojaron los siguientes resultados clave:
+• Ecuación de la Recta: (\hat{y} = 81.10 + 0.453x)
+• Pendiente ((b_1 = 0.453)): Indica que por cada hora extra de estudio semanal, el puntaje estimado del alumno se incrementa en 0.453 puntos.
+• Ordenada al origen ((b_0 = 81.10)): Representa la nota base estimada (81.10 puntos) en el caso hipotético de que un estudiante dedique 0 horas al estudio semanal.
+• (SC{x}) = (\sum x^2 - n \cdot (\bar{x})^2) = (1476 - 30 \cdot (6,87)^2) = (1476 - 1414,53) = 61,47
+• (SC{y})
+• = (\sum y^2 - n \cdot (\bar{y})^2) = (212015 - 30 \cdot (83,97)^2) = (212015 - 211512,03) = 502,97
+• (S{xy}) = (\sum xy - n \cdot \bar{x} \cdot \bar{y}) = (17368 - 30 \cdot 6,87 \cdot 83,97) = (17368 - 17297,13) = 70,87
+
+Pendiente ((b{1})):
+
+(b{1}=\frac{S{xy}}{SC{x}}=\frac{70,87}{61,47}=\mathbf{1,153})
+• Interpretación: Por cada hora extra de estudio semanal, el puntaje estimado en matemáticas aumenta en 1,153 puntos.
+
+Ordenada al origen ((b{0})):
+
+(b{0}=={y}-b{1}\cdot ={x}=83,97-(1,153\cdot 6,87)=83,97-7,92=\mathbf{76,05})
+• Interpretación: Si un alumno estudia 0 horas, su puntaje base estimado es de 76,05 puntos.
+
+Coeficiente de Correlación ((r)):
+
+(r=\frac{S{xy}}{\sqrt{SC{x}\cdot SC_{y}}}=\frac{70,87}{\sqrt{61,47\cdot 502,97}}=\frac{70,87}{175,83}=\mathbf{0,403})
+• Interpretación: Existe una asociación lineal positiva y de intensidad moderada entre las horas de estudio semanales y el puntaje obtenido por los 30 alumnos.
