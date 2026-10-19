@@ -1,0 +1,226 @@
+\section{Distribución normal}
+En estadística, cuando ordenamos los resultados de un fenómeno educativo y la mayoría de los
+valores se concentra alrededor de un centro, disminuyendo de forma pareja hacia ambos extremos,
+aparece la forma de montaña conocida como distribución normal o campana de Gauss. Es el modelo
+matemático más importante para analizar fenómenos educativos y sociales, ya que se define por
+completo con solo dos parámetros. En esta sección aplicaremos este modelo sobre la variable
+\Variable{english\_score}, cuyo análisis reveló un comportamiento notablemente parejo.
+
+\subsection{Parámetros de la distribución}
+Al ordenar las notas de inglés, notamos que la mayoría de los estudiantes se concentra alrededor
+de una nota central y que, a medida que nos alejamos de ese centro (hacia notas excelentes o notas
+muy bajas), la cantidad de alumnos disminuye de forma pareja. La campana se define completamente
+con los siguientes dos datos:
+\begin{itemize}
+	\item \textbf{La media ($\mu = 82{,}54$):} El centro exacto de la campana, que marca el
+	rendimiento promedio del grupo en inglés.
+	\item \textbf{La desviación estándar ($\sigma = 3{,}85$):} La medida que nos dice qué tan
+	dispersas o qué tan agrupadas están las notas respecto al promedio.
+\end{itemize}
+
+\PalabraClave{Conclusiones clave para la gestión educativa:}
+\begin{itemize}
+	\item \textbf{Rendimiento general sólido y homogéneo:} El promedio del grupo se sitúa en
+	82,54 puntos con una dispersión baja de 3,85 puntos. Esto demuestra que el nivel de inglés de
+	los alumnos es, en general, alto y bastante parejo, sin registrarse desniveles extremos ni
+	alarmantes en la mayoría del aula.
+	\item \textbf{Identificación temprana de alumnos en riesgo:} Gracias al modelo, determinamos
+	que existe un 25,46\% de probabilidad de que un estudiante obtenga una nota menor a 80
+	puntos. Esta métrica permite a la institución anticipar qué porcentaje del grupo podría
+	requerir tutorías o apoyo pedagógico.
+	\item \textbf{Criterio de becas justo y transparente:} Para cumplir con la condición de
+	premiar únicamente al 23\% de los mejores promedios, la matemática definió que la nota de
+	corte exacta debe ser 85,50 puntos. Utilizar este umbral garantiza un criterio de selección
+	objetivo, basado estrictamente en la distribución del mérito del grupo.
+	\item \textbf{Concentración del rendimiento:} Casi la mitad de los estudiantes (47,27\%) se
+	concentra en el rango de calificaciones entre 77 y 83 puntos. Esto confirma la alta densidad
+	de alumnos con un desempeño estándar-bueno, característico de una distribución normal bien
+	balanceada.
+\end{itemize}
+
+\AnalisisDescriptivo
+\input{tables/normal/analisis_normal.tex}
+
+% Definición de la función de densidad normal para los gráficos de esta sección.
+\pgfmathdeclarefunction{gauss}{3}{%
+  \pgfmathparse{1/(#3*sqrt(2*pi))*exp(-((#1-#2)^2)/(2*(#3)^2))}%
+}
+
+\subsection{Preguntas}
+
+\subsubsection{Pregunta 1: Probabilidad de nota menor a 80}
+
+¿Cuál es la probabilidad de que un estudiante elegido al azar obtenga una calificación menor a
+80 puntos?
+
+\PalabraClave{Cómo se toman los datos:}
+Primero estandarizamos la nota de corte a la escala estándar normal ((Z)), restando la media y
+dividiendo por la desviación estándar poblacional:
+\begin{equation*}
+  Z = \frac{80 - \mu}{\sigma} = \frac{80 - 82{,}54}{3{,}85} = \frac{-2{,}54}{3{,}85} \approx -0{,}66
+\end{equation*}
+
+\paragraph{Respuesta:}
+\[ P(X < 80) = P(Z < -0{,}66) = 0{,}2546 = 25{,}46\% \]
+
+\paragraph{Interpretación:} La probabilidad de que un estudiante obtenga una calificación menor a
+80 puntos es de 25,46\%. Es decir, hay aproximadamente una posibilidad en cuatro de que un alumno
+elegido al azar quede por debajo de esa nota, lo que ayuda a anticipar la demanda de tutorías.
+
+\TituloGrafico{Área bajo la curva para \texorpdfstring{$P(X < 80)$}{P(X menor a 80)}}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.7\textwidth,
+            height=6.5cm,
+            xlabel={Nota de inglés (puntos)},
+            ylabel={Densidad de probabilidad},
+            xmin=70, xmax=95,
+            ymin=0, ymax=0.12,
+            xtick={70,75,80,85,90,95},
+            ytick=\empty,
+            axis lines=left,
+            samples=200,
+            clip=false,
+        ]
+            % Curva normal completa.
+            \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
+            % Región sombreada: P(X < 80).
+            \addplot[draw=none, fill=blue!30, domain=70:80] {gauss(x,82.54,3.85)} \closedcycle;
+            % Líneas de referencia.
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
+                node[above, black] {$\mu = 82{,}54$};
+            \draw[dashed, blue!60!black] (axis cs:80,0) -- (axis cs:80,{gauss(80,82.54,3.85)});
+            \node[above] at (axis cs:75,0.03) {$P = 25{,}46\%$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Distribución normal (\(\mu = 82{,}54\), \(\sigma = 3{,}85\)) con el área sombreada
+    representando la probabilidad de obtener una nota menor a 80 puntos.}
+    \label{fig:normal_menor_80}
+\end{figure}
+
+% --------------------------------------------------------------------------------------------------
+
+\subsubsection{Pregunta 2: Probabilidad de nota mayor a 90}
+
+¿Cuál es la probabilidad de que un estudiante elegido al azar obtenga una calificación mayor a
+90 puntos?
+
+\PalabraClave{Cómo se toman los datos:}
+Nuevamente estandarizamos la nota de corte:
+\begin{equation*}
+  Z = \frac{90 - \mu}{\sigma} = \frac{90 - 82{,}54}{3{,}85} = \frac{7{,}46}{3{,}85} \approx 1{,}94
+\end{equation*}
+
+\paragraph{Respuesta:}
+\[ P(X > 90) = 1 - P(Z < 1{,}94) = 1 - 0{,}9738 = 0{,}0262 = 2{,}62\% \]
+
+\paragraph{Interpretación:} La probabilidad de que un estudiante obtenga una calificación mayor a
+90 puntos es de apenas 2,62\%. Las notas sobresalientes son, por lo tanto, un fenómeno extremo
+dentro de esta distribución: apenas dos o tres alumnos de cada cien alcanzan ese nivel.
+
+\TituloGrafico{Área bajo la curva para \texorpdfstring{$P(X > 90)$}{P(X mayor a 90)}}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.7\textwidth,
+            height=6.5cm,
+            xlabel={Nota de inglés (puntos)},
+            ylabel={Densidad de probabilidad},
+            xmin=70, xmax=95,
+            ymin=0, ymax=0.12,
+            xtick={70,75,80,85,90,95},
+            ytick=\empty,
+            axis lines=left,
+            samples=200,
+            clip=false,
+        ]
+            % Curva normal completa.
+            \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
+            % Región sombreada: P(X > 90).
+            \addplot[draw=none, fill=blue!30, domain=90:95] {gauss(x,82.54,3.85)} \closedcycle;
+            % Líneas de referencia.
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
+                node[above, black] {$\mu = 82{,}54$};
+            \draw[dashed, blue!60!black] (axis cs:90,0) -- (axis cs:90,{gauss(90,82.54,3.85)});
+            \node[above] at (axis cs:91.5,0.02) {$P = 2{,}62\%$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Distribución normal (\(\mu = 82{,}54\), \(\sigma = 3{,}85\)) con el área sombreada
+    representando la probabilidad de obtener una nota mayor a 90 puntos.}
+    \label{fig:normal_mayor_90}
+\end{figure}
+
+% --------------------------------------------------------------------------------------------------
+
+\subsubsection{Pregunta 3: Probabilidad de nota entre 77 y 83}
+
+¿Cuál es la probabilidad de que un estudiante elegido al azar obtenga una calificación entre 77
+y 83 puntos?
+
+\PalabraClave{Cómo se toman los datos:}
+Estándarizamos ambos límites del intervalo:
+\begin{equation*}
+  Z_1 = \frac{77 - 82{,}54}{3{,}85} = \frac{-5{,}54}{3{,}85} \approx -1{,}44
+  \qquad
+  Z_2 = \frac{83 - 82{,}54}{3{,}85} = \frac{0{,}46}{3{,}85} \approx 0{,}12
+\end{equation*}
+
+\paragraph{Respuesta:}
+\begin{equation*}
+  \begin{split}
+    P(77 < X < 83) &= P(-1{,}44 < Z < 0{,}12) = P(Z < 0{,}12) - P(Z < -1{,}44) \\
+                    &= 0{,}5477 - 0{,}0750 = 0{,}4727 = 47{,}27\%
+  \end{split}
+\end{equation*}
+
+\paragraph{Interpretación:} Elegiendo la nota de inglés de un estudiante al azar, la probabilidad
+de que la misma esté entre 77 y 83 puntos es de 47,27\%. Casi la mitad del grupo se concentra en
+ese estrecho rango de seis puntos, lo que confirma la alta densidad de alumnos con un desempeño
+estándar-bueno.
+
+\TituloGrafico{Área bajo la curva para \texorpdfstring{$P(77 < X < 83)$}{P(77 menor que X menor que 83)}}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=0.7\textwidth,
+            height=6.5cm,
+            xlabel={Nota de inglés (puntos)},
+            ylabel={Densidad de probabilidad},
+            xmin=70, xmax=95,
+            ymin=0, ymax=0.12,
+            xtick={70,75,80,85,90,95},
+            ytick=\empty,
+            axis lines=left,
+            samples=200,
+            clip=false,
+        ]
+            % Curva normal completa.
+            \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
+            % Región sombreada: P(77 < X < 83).
+            \addplot[draw=none, fill=blue!30, domain=77:83] {gauss(x,82.54,3.85)} \closedcycle;
+            % Líneas de referencia.
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
+                node[above, black] {$\mu = 82{,}54$};
+            \draw[dashed, blue!60!black] (axis cs:77,0) -- (axis cs:77,{gauss(77,82.54,3.85)});
+            \draw[dashed, blue!60!black] (axis cs:83,0) -- (axis cs:83,{gauss(83,82.54,3.85)});
+            \node[above] at (axis cs:80,0.03) {$P = 47{,}27\%$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Distribución normal (\(\mu = 82{,}54\), \(\sigma = 3{,}85\)) con el área sombreada
+    representando la probabilidad de obtener una nota entre 77 y 83 puntos.}
+    \label{fig:normal_entre_77_83}
+\end{figure}
+
+\Interpretacion
+Los tres casos analizados muestran cómo la distribución normal traduce la nota de corte en una
+probabilidad precisa. El bajo desvío estándar (3,85 puntos) concentra a casi la mitad del grupo
+en el rango de 77 a 83 puntos y vuelve excepcional el rendimiento sobresaliente (mayor a 90),
+mientras que identifica a un cuarto del grupo como posible destinatario de apoyo pedagógico. El
+modelo confirma que el nivel de inglés del aula es alto y homogéneo, y ofrece a la institución
+umbrales objetivos tanto para las becas (85,50 puntos) como para las tutorías (80 puntos).
+
+
