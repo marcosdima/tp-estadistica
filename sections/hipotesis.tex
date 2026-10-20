@@ -1,0 +1,112 @@
+\section{Pruebas de hipótesis}
+Una prueba de hipótesis es un procedimiento estadístico estándar para tomar una decisión
+objetiva entre dos afirmaciones opuestas sobre una población. Sus componentes básicos son:
+\begin{itemize}
+  \item \textbf{La hipótesis nula ($H_0$):} es la afirmación que se asume como verdadera y se    somete a prueba. Siempre incluye el signo igual.
+  \item \textbf{La hipótesis alternativa ($H_1$):} es la sospecha o el resultado deseado por el    investigador. Determina hacia qué lado de la campana se ubica la zona de rechazo.
+\end{itemize}
+Para tomar la decisión, el investigador define un nivel de significación ($\alpha$), usualmente
+del 5\%, que delimita la zona de rechazo mediante un valor crítico ($Z_c$). Si el estadístico
+de prueba ($Z_0$) calculado con los datos muestrales cae dentro de esa región crítica, la
+hipótesis nula se rechaza.
+
+\AnalisisDescriptivo
+Para poner en práctica la teoría tomamos el siguiente problema: la cátedra de Física afirma que
+el puntaje promedio histórico de los alumnos es de 82 puntos. Evaluamos una muestra aleatoria
+de estudiantes para contrastar esta afirmación frente a la sospecha de que el promedio real es
+mayor. Los datos del problema son:
+
+\input{tables/hipotesis/datos.tex}
+
+\subsection{Planteo estadístico del problema}
+\begin{itemize}
+  \item \textbf{Hipótesis nula:} $H_0: \mu \leq 82$ (afirmación histórica de la cátedra).
+  \item \textbf{Hipótesis alternativa:} $H_1: \mu > 82$ (sospecha del investigador — prueba
+    unilateral derecha).
+  \item \textbf{Datos muestrales:} media calculada $\bar{x} = 83{,}46$ puntos y desviación
+    estándar $\sigma = 3{,}5$ puntos, con $n = 50$ estudiantes.
+  \item \textbf{Criterio de decisión:} con $\alpha = 0{,}05$ (5\%), el valor crítico es
+    $Z_c = 1{,}645$.
+\end{itemize}
+
+\subsection{Cálculo del estadístico de prueba ($Z_0$)}
+\begin{equation*}
+  Z_0 = \frac{\bar{x} - \mu_0}{\dfrac{\sigma}{\sqrt{n}}}
+      = \frac{83{,}46 - 82}{\dfrac{3{,}5}{\sqrt{50}}}
+      = \frac{1{,}46}{0{,}495} = \mathbf{2{,}95}
+\end{equation*}
+
+% --------------------------------------------------------------------------------------------------
+
+\subsection{Evaluación y conclusión}
+\PalabraClave{Regla de decisión:} Si $Z_0 > Z_c$, se rechaza $H_0$.
+
+\PalabraClave{Resultado:} Dado que el estadístico obtenido ($2{,}95$) es mayor que el valor
+crítico ($1{,}645$), el dato cae profundamente dentro de la zona de rechazo.
+
+\PalabraClave{Conclusión del estudio:} Con un nivel de significación del 5\%, existe evidencia
+estadística suficiente para rechazar la hipótesis nula. Concluimos que el puntaje promedio en
+física de los estudiantes es significativamente superior a los 82 puntos históricos, validando
+por completo nuestra sospecha inicial.
+
+\TituloGrafico{Zona de rechazo y estadístico de prueba}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        % Función de densidad de la normal estándar.
+        \pgfmathdeclarefunction{normalpdf}{1}{%
+          \pgfmathparse{1/(sqrt(2*pi))*exp(-(#1)^2/2)}%
+        }
+        \begin{axis}[
+            width=0.66\textwidth,
+            height=6.2cm,
+            xlabel={Estatístico ($Z$)},
+            ylabel={Densidad de probabilidad},
+            xmin=-3.6, xmax=3.8,
+            ymin=0, ymax=0.46,
+            xtick={-3,-2,-1,0,1,2,3},
+            ytick=\empty,
+            axis lines=left,
+            samples=200,
+            legend style={at={(1.05,1.0)}, anchor=north west, font=\small,
+                fill=white, draw=black!50, fill opacity=1, text opacity=1,
+                inner sep=4pt, cells={anchor=west}},
+            legend cell align=left,
+            clip=false,
+        ]
+            % Zona de rechazo: Z > 1,645 (5% de la cola derecha).
+            \addplot[fill=red!70!black, draw=none, fill opacity=0.25, domain=1.645:3.8]
+                {normalpdf(x)} \closedcycle;
+            \addlegendentry{Zona de rechazo ($\alpha = 0{,}05$)}
+            % Campana normal estándar.
+            \addplot[blue, thick, domain=-3.6:3.8] {normalpdf(x)};
+            \addlegendentry{Normal estándar ($H_0$)}
+            % Entradas de leyenda para elementos dibujados con \draw.
+            \addlegendimage{red!70!black, dashed, thick}
+            \addlegendentry{Valor crítico ($Z_c$)}
+            \addlegendimage{black, thick, -{Latex[length=2.5mm]}}
+            \addlegendentry{Estadístico ($Z_0$)}
+            % Valor crítico.
+            \draw[red!70!black, dashed, thick] (axis cs:1.645,0) -- (axis cs:1.645,0.415)
+                node[above, red!70!black] {$Z_c = 1{,}645$};
+            % Estadístico de prueba con flecha desde el valor crítico.
+            \draw[black, thick, -{Latex[length=2.5mm]}] (axis cs:1.645,0.10)
+                -- (axis cs:2.95,0.10);
+            \node[above, black] at (axis cs:2.95,0.10) {$Z_0 = 2{,}95$};
+            % Etiqueta de la zona de rechazo.
+            \node[red!70!black] at (axis cs:2.7,0.30) {rechazo $H_0$};
+        \end{axis}
+    \end{tikzpicture}
+    \caption{Distribución normal estándar con la zona de rechazo de una prueba unilateral
+    derecha al 5\% (área roja a la derecha de $Z_c = 1{,}645$). El estadístico $Z_0 = 2{,}95$
+    cae dentro de esa zona, por lo que se rechaza $H_0$.}
+    \label{fig:hipotesis_rechazo}
+\end{figure}
+
+\Interpretacion
+La prueba muestra que la diferencia entre el promedio muestral (83,46) y el histórico (82) es
+demasiado grande para atribuirse al azar: con $Z_0 = 2{,}95$ muy por encima de $Z_c = 1{,}645$,
+la probabilidad de obtener esa diferencia si $H_0$ fuera cierta es inferior al 5\%. Por eso
+rechazamos la hipótesis nula y aceptamos la sospecha: el puntaje promedio en física es
+significativamente superior a los 82 puntos históricos. Vale recordar que $\alpha = 0{,}05$
+representa el riesgo que asumimos de equivocarnos al tomar esta decisión.
