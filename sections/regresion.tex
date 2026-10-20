@@ -69,34 +69,42 @@ entre las horas de estudio semanales y el puntaje obtenido por los 30 alumnos.
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-            width=0.72\textwidth,
+            width=0.64\textwidth,
             height=8cm,
             xlabel={Horas de estudio semanal ($x$)},
             ylabel={Puntaje matemático ($y$)},
             xmin=3.5, xmax=9.5,
-            ymin=76, ymax=88,
+            ymin=73, ymax=94,
             xtick={4,5,6,7,8,9},
-            ytick={76,78,80,82,84,86,88},
+            ytick={75,80,85,90},
             grid=major,
             grid style={gray!25},
-            legend pos=south east,
-            legend style={fill=white, draw=black!50, inner sep=3pt, font=\small},
+            legend style={at={(1.05,1.0)}, anchor=north west, fill=white, draw=black!50,
+                fill opacity=1, text opacity=1, inner sep=4pt, cells={anchor=west}},
+            legend cell align=left,
             clip=false,
         ]
+            % Dispersión: los 30 pares (horas, puntaje) de la muestra.
+            \addplot[only marks, mark=*, mark size=1.6pt, blue!70!black] coordinates {
+                (6,85) (8,78) (5,92) (7,80) (6,75) (9,88) (5,82) (6,85) (4,78) (8,89)
+                (7,85) (9,90) (6,82) (5,78) (8,85) (7,88) (6,82) (9,85) (8,90) (5,82)
+                (6,78) (7,85) (8,88) (9,82) (6,85) (7,88) (8,82) (5,78) (7,85) (9,82)
+            };
+            \addlegendentry{Datos de la muestra ($n = 30$)}
             % Recta de regresión: y = 76,05 + 1,153x.
             \addplot[red!70!black, very thick, domain=3.5:9.5] {76.05 + 1.153*x};
             \addlegendentry{$\hat{y} = 76{,}05 + 1{,}153x$}
             % Punto centróide: la recta pasa por (x̄, ȳ).
-            \addplot[only marks, mark=*, mark size=2.5pt, blue] coordinates {(6.87,83.97)};
+            \addplot[only marks, mark=star, mark size=3.5pt, black] coordinates {(6.87,83.97)};
             \addlegendentry{$(\bar{x},\, \bar{y}) = (6{,}87;\ 83{,}97)$}
             % Líneas guía hacia los ejes.
-            \draw[gray, dashed, thin] (axis cs:6.87,83.97) -- (axis cs:6.87,76);
+            \draw[gray, dashed, thin] (axis cs:6.87,83.97) -- (axis cs:6.87,73);
             \draw[gray, dashed, thin] (axis cs:6.87,83.97) -- (axis cs:3.5,83.97);
         \end{axis}
     \end{tikzpicture}
-    \caption{Recta de regresión de los puntajes estimados en función de las horas de estudio
-    semanal. El punto azul marca el promedio de la muestra $(6{,}87;\ 83{,}97)$, por el que la
-    recta siempre pasa.}
+    \caption{Dispersión de los 30 alumnos de la muestra (puntos azules) con la recta de
+    regresión $\hat{y} = 76{,}05 + 1{,}153x$ (línea roja). La estrella negra marca el promedio
+    de la muestra $(6{,}87;\ 83{,}97)$, punto por el que la recta siempre pasa.}
     \label{fig:regresion_recta}
 \end{figure}
 
