@@ -1,0 +1,30 @@
+% =====================================================================
+%  figures/bivariable-cuali-cuali.tex
+%  Barras APILADAS: 'part_time_job' x 'absence_days'.
+%  (Reemplaza a img/bivariable_cuali_cuali.png)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  ybar stacked,
+  bar width=34pt,
+  title={Días de ausencia según trabajo a tiempo parcial},
+  xlabel={Situación laboral},
+  ylabel={Cantidad de estudiantes},
+  ymin=0, ymax=60,
+  symbolic x coords={Trabaja, No trabaja},
+  xtick=data,
+  legend style={at={(0.5,-0.16)}, anchor=north, legend columns=-1},
+  enlarge x limits=0.4,
+]
+\addplot+[fill=azul, draw=azul] coordinates {(Trabaja,16) (No trabaja,20)};
+\addplot+[fill=naranja, draw=naranja] coordinates {(Trabaja,18) (No trabaja,13)};
+\addplot+[fill=verde, draw=verde] coordinates {(Trabaja,24) (No trabaja,20)};
+\legend{No faltó, Faltó una vez, Faltó 2 o más}
+\end{axis}
+\end{tikzpicture}
+\caption{Relación entre trabajo a tiempo parcial y días de ausencia.}
+\label{fig:bivariable_cuali_cuali}
+\end{figure}
+

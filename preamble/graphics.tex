@@ -1,0 +1,53 @@
+% =====================================================================
+%  preamble/graphics.tex
+%  Estilos globales para gráficos TikZ / pgfplots.
+%  Centraliza la apariencia para que todos los gráficos sean coherentes.
+% =====================================================================
+
+\pgfplotsset{
+  compat=1.18,
+  % Estilo base para todos los ejes.
+  every axis/.style={
+    width=0.85\linewidth,
+    tick label style={font=\small, text=gris},
+    label style={font=\small, text=gris},
+    legend style={font=\small, draw=grisclaro, fill=white},
+    axis line style={gris},
+    grid=major,
+    grid style={grisclaro, dashed},
+  },
+  % Ciclo de colores por defecto para varias series.
+  cycle list={
+    {fill=azul, draw=azul},
+    {fill=naranja, draw=naranja},
+    {fill=verde, draw=verde},
+    {fill=azulclaro, draw=azulclaro},
+  },
+}
+
+% Barras verticales agrupadas más prolijas.
+\pgfplotsset{
+  barras/.style={
+    ybar, bar width=12pt, enlarge x limits=0.2,
+    nodes near coords, every node near coord/.append style={font=\tiny, text=gris},
+    ymajorgrids, grid style=dashed,
+  },
+}
+
+% Dispersión (scatter).
+\pgfplotsset{
+  dispersion/.style={
+    only marks, mark=*, mark size=1.6pt,
+    enlarge x limits=0.1,
+  },
+}
+
+% Definición de un nodo de diagrama de flujo reutilizable (TikZ).
+\usetikzlibrary{positioning,arrows.meta}
+\usepgfplotslibrary{statistics}   % boxplot
+\tikzset{
+  caja/.style={rectangle, rounded corners, draw=gris, thick,
+               fill=tablacabecera, text=black, align=center,
+               minimum height=2.4em, inner sep=6pt},
+  flecha/.style={->, >=stealth, thick, gris},
+}

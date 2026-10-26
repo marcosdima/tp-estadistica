@@ -1,0 +1,26 @@
+% =====================================================================
+%  figures/binomial-barras.tex
+%  Distribución binomial (n=10, p=0,324).
+%  (Reemplaza a img/barras.png)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  ybar, bar width=20pt,
+  title={Distribución binomial ($n=10$, $p=0{,}324$)},
+  xlabel={Número de estudiantes con asistencia perfecta ($k$)},
+  ylabel={Probabilidad (\%)},
+  ymin=0, ymax=30,
+  xtick=data,
+  enlarge x limits=0.08,
+]
+\addplot+[fill=azul, draw=azul] coordinates {
+  (0,1.98) (1,9.49) (2,20.67) (3,26.33) (4,22.07) (5,12.70)
+  (6,5.06) (7,1.39) (8,0.25) (9,0.03) (10,0.00)
+};
+\end{axis}
+\end{tikzpicture}
+\caption{Gráfico de distribución binomial.}
+\label{fig:grafico_probabilidad}
+\end{figure}

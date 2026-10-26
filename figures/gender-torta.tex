@@ -1,0 +1,22 @@
+% =====================================================================
+%  figures/gender-torta.tex
+%  Gráfico de torta para la variable 'gender'.
+%  (Reemplaza a img/grafico_gender.png)
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \pie[
+    text=legend,
+    radius=2.6,
+    color={azul, naranja},
+    sum=auto,
+    after number=\%,
+  ]{
+    52.25/female,
+    47.75/male
+  }
+\end{tikzpicture}
+\caption{Gráfico de torta para la variable \Variable{gender}.}
+\label{fig:grafico_gender}
+\end{figure}

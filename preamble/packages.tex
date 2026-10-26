@@ -1,0 +1,44 @@
+% =====================================================================
+%  preamble/packages.tex
+%  Carga de todos los paquetes. xcolor se carga aquí UNA sola vez con
+%  sus opciones definitivas para evitar choques de opciones más abajo.
+% =====================================================================
+
+% --- Idioma y codificación ---
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% --- Color (con soporte de filas de tabla). Única carga de xcolor. ---
+\usepackage[table,dvipsnames]{xcolor}
+
+% --- Matemáticas ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% --- Tipografía y maquetación fina ---
+\usepackage{microtype}      % mejora espaciado/justificado
+\usepackage{enumitem}       % control fino de listas
+\usepackage{caption}        % leyendas de figuras/tablas
+\usepackage{fancyhdr}       % encabezado y pie
+\usepackage{titlesec}       % formato de títulos de sección
+\usepackage{float}          % posicionamiento [H]
+
+% --- Gráficos (TikZ + pgfplots + pgf-pie) ---
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgf-pie}
+
+% --- Tablas ---
+\usepackage{booktabs}       % reglas profesionales (\toprule, \midrule...)
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{seqsplit}       % partir identificadores largos (p. ej. weekly_self_study_hours)
+\usepackage{threeparttable} % notas al pie de tablas
+\usepackage{makecell}       % encabezados multi-línea
+\usepackage{multirow}
+
+% --- Cajas destacadas ---
+\usepackage{tcolorbox}

@@ -13,6 +13,7 @@
     "**/main.out": true,
     "**/main.toc": true,
     "**/main.synctex.gz": true,
+    "**/build": true
   },
   "editor.rulers": [100]
 }

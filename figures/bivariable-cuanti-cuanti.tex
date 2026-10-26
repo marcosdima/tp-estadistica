@@ -1,0 +1,32 @@
+% =====================================================================
+%  figures/bivariable-cuanti-cuanti.tex
+%  Dispersion: 'weekly_self_study_hours' x 'math_score'.
+%  (Reemplaza a img/bivariable_cuanti_cuanti.png)
+%
+%  22 puntos = combinaciones UNICAS de (horas, puntaje) de la base real
+%  docs/db_students.xlsx - db.csv (N=111), igual que el grafico original
+%  hecho en Google Sheets (agrupado).
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  dispersion,
+  title={Relación entre horas de estudio semanal y puntaje en matemáticas},
+  xlabel={Horas de estudio (\Variable{weekly\_self\_study\_hours})},
+  ylabel={Puntaje (\Variable{math\_score})},
+  xmin=3, xmax=10, ymin=70, ymax=100,
+]
+\addplot+[only marks, mark=*, mark size=2.0pt, azul] coordinates {
+  (4,78) (5,78) (5,82) (5,85) (5,92)
+  (6,75) (6,78) (6,82) (6,85)
+  (7,80) (7,85) (7,88)
+  (8,78) (8,82) (8,85) (8,88) (8,89) (8,90)
+  (9,82) (9,85) (9,88) (9,90)
+};
+\end{axis}
+\end{tikzpicture}
+\caption{Relación entre horas de estudio semanal y puntaje en matemáticas.}
+\label{fig:bivariable_cuanti_cuanti}
+\end{figure}
+

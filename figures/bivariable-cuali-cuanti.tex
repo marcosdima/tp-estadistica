@@ -1,0 +1,43 @@
+% =====================================================================
+%  figures/bivariable-cuali-cuanti.tex
+%  Boxplot: 'gender' x 'biology_score'.
+%  (Reemplaza a img/bivariable_cuali_cuanti.png)
+%
+%  Valores desde la tabla de SPSS (tables/bivariable-genero-biologia):
+%    female: min 79, Q1 82, mediana 83,5, Q3 86, max 90
+%    male:   min 79, Q1 83, mediana 85,   Q3 86, max 90
+% =====================================================================
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  boxplot/draw direction=y,
+  boxplot={
+      box extend=0.35,
+  },
+  title={Distribución de \Variable{biology\_score} según género},
+  ylabel={Puntaje de biología},
+  ymin=76, ymax=92,
+  xtick={1,2},
+  xticklabels={female, male},
+  xlabel={Gender},
+  grid=major,
+]
+  % female: min 79, Q1 82, mediana 83,5, Q3 86, max 90, media 83,62
+  \addplot+[boxplot prepared={
+      lower whisker=79, lower quartile=82, median=83.5,
+      upper quartile=86, upper whisker=90},
+      fill=azulclaro, draw=azul] coordinates {};
+  % male: min 79, Q1 83, mediana 85, Q3 86, max 90, media 84,17
+  \addplot+[boxplot prepared={
+      lower whisker=79, lower quartile=83, median=85,
+      upper quartile=86, upper whisker=90},
+      fill=naranja!40, draw=naranja] coordinates {};
+  % marcas de la media (punto): female 83,62 / male 84,17
+  \addplot[only marks, mark=*, mark size=3.5pt, thick]
+    coordinates {(1,83.62) (2,84.17)};
+\end{axis}
+\end{tikzpicture}
+\caption{Relación entre género y puntaje en biología.}
+\label{fig:bivariable_cuali_cuanti}
+\end{figure}
