@@ -57,6 +57,18 @@
 }
 {\end{longtable}}
 
+% --- Entorno TablaDatosFlexible (estilo antiguo, recuperado de config.tex) ---
+%   Soportado para tablas migradas del trabajo previo. Usa columnas L{} y C{}
+%   ya definidas más arriba.
+\newenvironment{TablaDatosFlexible}[2]{%
+  \begin{tabular}{#1}%
+  #2\\[4pt]\hline%
+}{%
+  \end{tabular}%
+}
+
+\newcommand{\TablaFilaFlexible}[1]{#1\\[4pt]\hline}
+
 % --- Caja reutilizable para resaltar resultados/interpretaciones ---
 \newtcolorbox{CajaDestacada}[1][]{%
   colback=tablafila, colframe=azul!40, boxrule=0.6pt, arc=2pt,
