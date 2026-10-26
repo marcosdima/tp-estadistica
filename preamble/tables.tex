@@ -58,16 +58,32 @@
 {\end{longtable}}
 
 % --- Entorno TablaDatosFlexible (estilo antiguo, recuperado de config.tex) ---
-%   Soportado para tablas migradas del trabajo previo. Usa columnas L{} y C{}
-%   ya definidas más arriba.
+%   Soportado para tablas migradas del trabajo previo. Usa longtable + booktabs
+%   para consistencia con el estilo del rework (centrado, reglas profesionales,
+%   cabecera repetible en cada página). Columnas L{} y C{} ya definidas arriba.
 \newenvironment{TablaDatosFlexible}[2]{%
-  \begin{tabular}{#1}%
-  #2\\[4pt]\hline%
+  \centering
+  \setlength{\tabcolsep}{5pt}%
+  \renewcommand{\arraystretch}{1.3}%
+  \setlength{\LTleft}{0pt}%
+  \setlength{\LTright}{0pt}%
+  \begin{longtable}{#1}%
+    \toprule
+    #2 \\ \midrule
+  \endfirsthead
+    \toprule
+    #2 \\ \midrule
+  \endhead
+    \midrule
+  \endfoot
+    \bottomrule
+  \endlastfoot
 }{%
-  \end{tabular}%
+  \end{longtable}%
+  \par
 }
 
-\newcommand{\TablaFilaFlexible}[1]{#1\\[4pt]\hline}
+\newcommand{\TablaFilaFlexible}[1]{#1 \\ \midrule}
 
 % --- Caja reutilizable para resaltar resultados/interpretaciones ---
 \newtcolorbox{CajaDestacada}[1][]{%
