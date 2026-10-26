@@ -38,16 +38,14 @@ $\sum x^2 = 1476$, $\sum y^2 = 212015$ y $\sum xy = 17368$):
 \begin{equation*}
   b_1 = \frac{S_{xy}}{SC_x} = \frac{70{,}87}{61{,}47} = \mathbf{1{,}153}
 \end{equation*}
-\PalabraClave{Interpretación:} Por cada hora extra de estudio semanal, el puntaje estimado en
-matemáticas aumenta en 1,153 puntos.
+\Interpretacion{Por cada hora extra de estudio semanal, el puntaje estimado en matemáticas aumenta en 1,153 puntos.}
 
 \subsubsection{Ordenada al origen ($b_0$)}
 \begin{equation*}
   b_0 = \bar{y} - b_1 \cdot \bar{x} = 83{,}97 - (1{,}153 \cdot 6{,}87)
       = 83{,}97 - 7{,}92 = \mathbf{76{,}05}
 \end{equation*}
-\PalabraClave{Interpretación:} Si un alumno estudia 0 horas, su puntaje base estimado es de
-76,05 puntos.
+\Interpretacion{Si un alumno estudia 0 horas, su puntaje base estimado es de 76,05 puntos.}
 
 La ecuación completa de la recta de mínimos cuadrados queda entonces:
 \begin{equation*}
@@ -61,10 +59,15 @@ La ecuación completa de la recta de mínimos cuadrados queda entonces:
   r = \frac{S_{xy}}{\sqrt{SC_x \cdot SC_y}} = \frac{70{,}87}{\sqrt{61{,}47 \cdot 502{,}97}}
     = \frac{70{,}87}{175{,}83} = \mathbf{0{,}403}
 \end{equation*}
-\PalabraClave{Interpretación:} Existe una asociación lineal positiva y de intensidad moderada
-entre las horas de estudio semanales y el puntaje obtenido por los 30 alumnos.
+\Interpretacion{Existe una asociación lineal positiva y de intensidad moderada entre las horas de estudio semanales y el puntaje obtenido por los 30 alumnos.}
 
-\TituloGrafico{Recta de ajuste de mínimos cuadrados}
+\subsection{Coeficiente de determinación ($R^2$)}
+\begin{equation*}
+  R^2 = r^2 = (0{,}403)^2 = 0{,}1624 = 16{,}24\%
+\end{equation*}
+\Interpretacion{El coeficiente de determinación $R^2 = 0{,}1624$ indica que el 16,24\% de la variabilidad del puntaje matemático se explica linealmente por las horas de estudio semanal $x$. Esto significa que, aunque existe una asociación positiva moderada ($r = 0{,}403$), el tiempo de estudio por sí solo no es suficiente para explicar completamente el rendimiento académico; otros factores también influyen en el puntaje final.}
+
+\subsection{Gráfico: Recta de ajuste de mínimos cuadrados}
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
@@ -108,10 +111,4 @@ entre las horas de estudio semanales y el puntaje obtenido por los 30 alumnos.
     \label{fig:regresion_recta}
 \end{figure}
 
-\Interpretacion
-La recta $\hat{y} = 76{,}05 + 1{,}153x$ resume la relación entre ambas variables: cada hora
-semanal adicional de estudio se asocia con un aumento esperado de 1,153 puntos en el puntaje de
-matemáticas. El coeficiente de correlación $r = 0{,}403$ confirma una asociación positiva de
-intensidad moderada: el tiempo de estudio explica en parte el rendimiento, pero no es el único
-factor. Como el modelo es una estimación, las predicciones deben interpretarse como valores
-esperados del grupo y no como notas garantizadas para cada alumno.
+\Interpretacion{La recta $\hat{y} = 76{,}05 + 1{,}153x$ resume la relación entre ambas variables: cada hora semanal adicional de estudio se asocia con un aumento esperado de 1,153 puntos en el puntaje de matemáticas. El coeficiente de correlación $r = 0{,}403$ confirma una asociación positiva de intensidad moderada: el tiempo de estudio explica en parte el rendimiento, pero no es el único factor. Como el modelo es una estimación, las predicciones deben interpretarse como valores esperados del grupo y no como notas garantizadas para cada alumno.}
