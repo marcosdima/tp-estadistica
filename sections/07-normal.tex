@@ -73,7 +73,7 @@ elegido al azar quede por debajo de esa nota, lo que ayuda a anticipar la demand
             \addplot[draw=none, fill=blue!30, domain=70:80, area legend] {gauss(x,82.54,3.85)} \closedcycle;
             \addlegendentry{$P = 25{,}46\%$}
             % Líneas de referencia.
-            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,{gauss(82.54,82.54,3.85)});
             \draw[dashed, blue!60!black] (axis cs:80,0) -- (axis cs:80,{gauss(80,82.54,3.85)});
         \end{axis}
     \end{tikzpicture}
@@ -125,7 +125,7 @@ dentro de esta distribución: apenas dos o tres alumnos de cada cien alcanzan es
             \addplot[draw=none, fill=blue!30, domain=90:95, area legend] {gauss(x,82.54,3.85)} \closedcycle;
             \addlegendentry{$P = 2{,}62\%$}
             % Líneas de referencia.
-            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,{gauss(82.54,82.54,3.85)});
             \draw[dashed, blue!60!black] (axis cs:90,0) -- (axis cs:90,{gauss(90,82.54,3.85)});
         \end{axis}
     \end{tikzpicture}
@@ -185,7 +185,7 @@ estándar-bueno.}
             \addplot[draw=none, fill=blue!30, domain=77:83, area legend] {gauss(x,82.54,3.85)} \closedcycle;
             \addlegendentry{$P = 47{,}27\%$}
             % Líneas de referencia.
-            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,{gauss(82.54,82.54,3.85)});
             \draw[dashed, blue!60!black] (axis cs:77,0) -- (axis cs:77,{gauss(77,82.54,3.85)});
             \draw[dashed, blue!60!black] (axis cs:83,0) -- (axis cs:83,{gauss(83,82.54,3.85)});
         \end{axis}
