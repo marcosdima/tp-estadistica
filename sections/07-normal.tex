@@ -51,7 +51,7 @@ elegido al azar quede por debajo de esa nota, lo que ayuda a anticipar la demand
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-            width=0.7\textwidth,
+            width=0.62\textwidth,
             height=6.5cm,
             xlabel={Nota de inglés (puntos)},
             ylabel={Densidad de probabilidad},
@@ -62,16 +62,25 @@ elegido al azar quede por debajo de esa nota, lo que ayuda a anticipar la demand
             axis lines=left,
             samples=200,
             clip=false,
+            legend style={at={(1.05,1.0)}, anchor=north west, font=\small,
+                fill=white, draw=black!50, fill opacity=1, text opacity=1,
+                inner sep=4pt, cells={anchor=west}},
+            legend cell align=left,
         ]
             % Curva normal completa.
             \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
             % Región sombreada: P(X < 80).
             \addplot[draw=none, fill=blue!30, domain=70:80] {gauss(x,82.54,3.85)} \closedcycle;
+            % Entradas del cuadro informativo.
+            \addlegendimage{dashed, gray, thick}
+            \addlegendentry{$\mu = 82{,}54$}
+            \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
+            \addlegendentry{$P = 25{,}46\%$}
             % Líneas de referencia.
             \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
-                node[above, black] {$\mu = 82{,}54$};
+                node[above, black] {$\mu$};
             \draw[dashed, blue!60!black] (axis cs:80,0) -- (axis cs:80,{gauss(80,82.54,3.85)});
-            \node at (axis cs:76.5,0.025) [fill=white, fill opacity=0.85, text opacity=1, rounded corners=2pt, inner sep=2pt] {$P = 25{,}46\%$};
+            \node at (axis cs:76.5,0.02) [text=blue!60!black, font=\bfseries] {$P$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
@@ -100,7 +109,7 @@ dentro de esta distribución: apenas dos o tres alumnos de cada cien alcanzan es
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-            width=0.7\textwidth,
+            width=0.62\textwidth,
             height=6.5cm,
             xlabel={Nota de inglés (puntos)},
             ylabel={Densidad de probabilidad},
@@ -111,17 +120,25 @@ dentro de esta distribución: apenas dos o tres alumnos de cada cien alcanzan es
             axis lines=left,
             samples=200,
             clip=false,
+            legend style={at={(1.05,1.0)}, anchor=north west, font=\small,
+                fill=white, draw=black!50, fill opacity=1, text opacity=1,
+                inner sep=4pt, cells={anchor=west}},
+            legend cell align=left,
         ]
             % Curva normal completa.
             \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
             % Región sombreada: P(X > 90).
             \addplot[draw=none, fill=blue!30, domain=90:95] {gauss(x,82.54,3.85)} \closedcycle;
+            % Entradas del cuadro informativo.
+            \addlegendimage{dashed, gray, thick}
+            \addlegendentry{$\mu = 82{,}54$}
+            \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
+            \addlegendentry{$P = 2{,}62\%$}
             % Líneas de referencia.
             \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
-                node[above, black] {$\mu = 82{,}54$};
+                node[above, black] {$\mu$};
             \draw[dashed, blue!60!black] (axis cs:90,0) -- (axis cs:90,{gauss(90,82.54,3.85)});
-            \draw[-{Latex[length=2mm]}, thick, blue!60!black] (axis cs:92.5,0.035) -- (axis cs:91.2,0.007);
-            \node[above] at (axis cs:92.5,0.035) {$P = 2{,}62\%$};
+            \node at (axis cs:91.5,0.005) [text=blue!60!black, font=\bfseries] {$P$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
@@ -158,7 +175,7 @@ estándar-bueno.}
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-            width=0.7\textwidth,
+            width=0.62\textwidth,
             height=6.5cm,
             xlabel={Nota de inglés (puntos)},
             ylabel={Densidad de probabilidad},
@@ -169,17 +186,26 @@ estándar-bueno.}
             axis lines=left,
             samples=200,
             clip=false,
+            legend style={at={(1.05,1.0)}, anchor=north west, font=\small,
+                fill=white, draw=black!50, fill opacity=1, text opacity=1,
+                inner sep=4pt, cells={anchor=west}},
+            legend cell align=left,
         ]
             % Curva normal completa.
             \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
             % Región sombreada: P(77 < X < 83).
             \addplot[draw=none, fill=blue!30, domain=77:83] {gauss(x,82.54,3.85)} \closedcycle;
+            % Entradas del cuadro informativo.
+            \addlegendimage{dashed, gray, thick}
+            \addlegendentry{$\mu = 82{,}54$}
+            \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
+            \addlegendentry{$P = 47{,}27\%$}
             % Líneas de referencia.
             \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
-                node[above, black] {$\mu = 82{,}54$};
+                node[above, black] {$\mu$};
             \draw[dashed, blue!60!black] (axis cs:77,0) -- (axis cs:77,{gauss(77,82.54,3.85)});
             \draw[dashed, blue!60!black] (axis cs:83,0) -- (axis cs:83,{gauss(83,82.54,3.85)});
-            \node at (axis cs:80,0.04) [fill=white, fill opacity=0.85, text opacity=1, rounded corners=2pt, inner sep=2pt] {$P = 47{,}27\%$};
+            \node at (axis cs:80,0.035) [text=blue!60!black, font=\bfseries] {$P$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
