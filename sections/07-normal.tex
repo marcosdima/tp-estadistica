@@ -71,7 +71,7 @@ elegido al azar quede por debajo de esa nota, lo que ayuda a anticipar la demand
             \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
                 node[above, black] {$\mu = 82{,}54$};
             \draw[dashed, blue!60!black] (axis cs:80,0) -- (axis cs:80,{gauss(80,82.54,3.85)});
-            \node[above] at (axis cs:75,0.03) {$P = 25{,}46\%$};
+            \node at (axis cs:76.5,0.025) [fill=white, fill opacity=0.85, text opacity=1, rounded corners=2pt, inner sep=2pt] {$P = 25{,}46\%$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
@@ -120,7 +120,8 @@ dentro de esta distribución: apenas dos o tres alumnos de cada cien alcanzan es
             \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
                 node[above, black] {$\mu = 82{,}54$};
             \draw[dashed, blue!60!black] (axis cs:90,0) -- (axis cs:90,{gauss(90,82.54,3.85)});
-            \node[above] at (axis cs:91.5,0.02) {$P = 2{,}62\%$};
+            \draw[-{Latex[length=2mm]}, thick, blue!60!black] (axis cs:92.5,0.035) -- (axis cs:91.2,0.007);
+            \node[above] at (axis cs:92.5,0.035) {$P = 2{,}62\%$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
@@ -178,7 +179,7 @@ estándar-bueno.}
                 node[above, black] {$\mu = 82{,}54$};
             \draw[dashed, blue!60!black] (axis cs:77,0) -- (axis cs:77,{gauss(77,82.54,3.85)});
             \draw[dashed, blue!60!black] (axis cs:83,0) -- (axis cs:83,{gauss(83,82.54,3.85)});
-            \node[above] at (axis cs:80,0.03) {$P = 47{,}27\%$};
+            \node at (axis cs:80,0.04) [fill=white, fill opacity=0.85, text opacity=1, rounded corners=2pt, inner sep=2pt] {$P = 47{,}27\%$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}

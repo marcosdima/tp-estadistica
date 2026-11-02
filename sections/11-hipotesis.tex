@@ -89,12 +89,13 @@ por completo nuestra sospecha inicial.}
             % Valor crítico.
             \draw[red!70!black, dashed, thick] (axis cs:1.645,0) -- (axis cs:1.645,0.415)
                 node[above, red!70!black] {$Z_c = 1{,}645$};
-            % Flecha que va del estadístico de prueba hasta el valor crítico.
-            \draw[black, thick, -{Latex[length=2.5mm]}] (axis cs:2.95,0.10)
-                -- (axis cs:1.645,0.10);
-            \node[above, black] at (axis cs:2.95,0.10) {$Z_0 = 2{,}95$};
+            % Flecha señalando la posición del estadístico de prueba (Z_0 = 2,95).
+            \draw[black, thick, -{Latex[length=2.5mm]}] (axis cs:2.95,0.14)
+                -- (axis cs:2.95,0.015);
+            \node[above, black] at (axis cs:2.95,0.14) {$Z_0 = 2{,}95$};
+            \addplot[only marks, mark=*, mark size=2pt, black] coordinates {(2.95,0)};
             % Etiqueta de la zona de rechazo.
-            \node[red!70!black] at (axis cs:2.7,0.30) {rechazo $H_0$};
+            \node[red!70!black] at (axis cs:2.6,0.30) {rechazo $H_0$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
