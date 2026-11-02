@@ -89,9 +89,9 @@ por completo nuestra sospecha inicial.
             % Valor crítico.
             \draw[red!70!black, dashed, thick] (axis cs:1.645,0) -- (axis cs:1.645,0.415)
                 node[above, red!70!black] {$Z_c = 1{,}645$};
-            % Estadístico de prueba con flecha desde el valor crítico.
-            \draw[black, thick, -{Latex[length=2.5mm]}] (axis cs:1.645,0.10)
-                -- (axis cs:2.95,0.10);
+            % Flecha que va del estadístico de prueba hasta el valor crítico.
+            \draw[black, thick, -{Latex[length=2.5mm]}] (axis cs:2.95,0.10)
+                -- (axis cs:1.645,0.10);
             \node[above, black] at (axis cs:2.95,0.10) {$Z_0 = 2{,}95$};
             % Etiqueta de la zona de rechazo.
             \node[red!70!black] at (axis cs:2.7,0.30) {rechazo $H_0$};
