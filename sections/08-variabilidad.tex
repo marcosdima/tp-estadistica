@@ -18,9 +18,9 @@ promedios alrededor de la media real, la estadística utiliza el error estándar
 \begin{equation*}
   \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}
 \end{equation*}
-\PalabraClave{Cómo se toman los datos:} Al crecer el tamaño del grupo $n$, el denominador
+\BloqueCorrido{Cómo se toman los datos}{Al crecer el tamaño del grupo $n$, el denominador
 aumenta y el error estándar se reduce: los promedios muestrales se ven obligados a apretarse
-alrededor del valor real de la población.
+alrededor del valor real de la población.}
 
 \subsection{Grupos chicos ($n = 10$)}
 Seleccionamos 10 grupos de 10 alumnos cada uno y registramos sus promedios:
@@ -28,10 +28,10 @@ Seleccionamos 10 grupos de 10 alumnos cada uno y registramos sus promedios:
 \TablaDeDatos
 \input{tables/variabilidad-muestras_n10}
 
-\PalabraClave{Lectura de la tabla:} Como son grupos chicos, los promedios están dispersos en un
+\BloqueCorrido{Lectura de la tabla}{Como son grupos chicos, los promedios están dispersos en un
 rango de 80,40 a 83,30. Al haber pocos alumnos, cualquier nota extrema pesa demasiado en el
 promedio y lo hace saltar. Aun así, el promedio global de estas 10 muestras da 81,39, rondando
-la media real (81,37).
+la media real (81,37).}
 
 % --------------------------------------------------------------------------------------------------
 
@@ -41,10 +41,10 @@ Ampliamos el experimento a 20 grupos de 20 alumnos cada uno:
 \TablaDeDatos
 \input{tables/variabilidad-muestras_n20}
 
-\PalabraClave{Lectura de la tabla:} Al agrandar el grupo, las notas altas y bajas empiezan a
+\BloqueCorrido{Lectura de la tabla}{Al agrandar el grupo, las notas altas y bajas empiezan a
 compensarse entre sí. Aunque el azar puede hacer que alguna tanda salga más movida (en esta
 simulación los promedios oscilaron entre 79,40 y 83,85), el promedio de medias da 81,56,
-manteniéndose muy cerca del parámetro real.
+manteniéndose muy cerca del parámetro real.}
 
 % --------------------------------------------------------------------------------------------------
 
@@ -55,10 +55,10 @@ regla estadística para aplicar el Teorema Central del Límite:
 \TablaDeDatos
 \input{tables/variabilidad-muestras_n30}
 
-\PalabraClave{Lectura de la tabla:} Al alcanzar el tamaño óptimo, el error estándar cae
+\BloqueCorrido{Lectura de la tabla}{Al alcanzar el tamaño óptimo, el error estándar cae
 notablemente: el desvío de los promedios se reduce a 0,80 puntos, el más bajo de toda la
 simulación. El promedio global de las 30 muestras es 81,24, demostrando la convergencia que
-dicta el Teorema Central del Límite.
+dicta el Teorema Central del Límite.}
 
 \subsection{Cuadro resumen}
 Comparar los tres tamaños de grupo lado a lado permite ver el patrón completo de la simulación:
@@ -121,7 +121,7 @@ con centro en la media real y con un error estándar igual a $\sigma / \sqrt{n}$
     \label{fig:variabilidad_campanas}
 \end{figure}
 
-\PalabraClave{Análisis de las campanas:}
+\BloqueTitulo{Análisis de las campanas}
 \begin{itemize}
   \item \textbf{Mismo centro, distinto ancho:} las tres campanas se apoyan en la media real,
     porque cambiar el tamaño del grupo no altera el promedio esperado, sino la dispersión con la
@@ -131,19 +131,16 @@ con centro en la media real y con un error estándar igual a $\sigma / \sqrt{n}$
 \end{itemize}
 
 \subsection{¿Qué nos demuestra el Teorema Central del Límite?}
-\PalabraClave{El promedio de los promedios no miente:} Si tomamos muchas muestras, la media de
-todas ellas siempre va a converger hacia la media real de toda la población. En nuestra
-simulación, los tres promedios globales dieron 81,39; 81,56 y 81,24, todos dentro de 0,20
-puntos de los 81,37 reales.
+\BloqueCorrido{El promedio de los promedios no miente}{Si tomamos muchas muestras, la media de
+todas ellas converge hacia la media real de la población, sin importar el tamaño de cada una.}
 
-\PalabraClave{A mayor grupo, mayor precisión:} Cuanto más grande sea la muestra que elijamos,
-menor será la dispersión (el error estándar). Como muestra la fórmula
-$\sigma_{\bar{x}} = \sigma / \sqrt{n}$, al pasar de 10 a 30 alumnos el error cae de 1,66 a
-0,96 puntos: la campana se vuelve más alta y delgada, concentrándose en el valor real.
+\BloqueCorrido{A mayor grupo, mayor precisión}{Al crecer el tamaño de la muestra baja el error
+estándar $\sigma_{\bar{x}} = \sigma / \sqrt{n}$, de modo que los promedios se aprietan alrededor
+de ese valor real en lugar de dispersarse.}
 
-\PalabraClave{La forma siempre tiende a la normalidad:} No importa si las notas originales de
-la escuela están amontonadas de forma extraña o asimétrica; los promedios de los grupos grandes
-siempre se van a ordenar dibujando una campana de Gauss perfecta y simétrica.
+\BloqueCorrido{La forma siempre tiende a la normalidad}{No importa si las notas originales de la
+escuela están amontonadas de forma extraña o asimétrica; los promedios de los grupos grandes
+siempre se ordenan dibujando una campana de Gauss perfecta y simétrica.}
 
 \Interpretacion{En la práctica, esto autoriza a la institución a estimar el nivel de química de toda la escuela confiando en grupos de 30 estudiantes, sin necesidad de examinar a los 111 alumnos.}
 

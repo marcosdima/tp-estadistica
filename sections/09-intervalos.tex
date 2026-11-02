@@ -30,12 +30,12 @@ combina los dos factores clave vistos al principio:
   E = Z_{\alpha/2} \cdot \sigma_{\bar{x}}, \qquad
   \sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}
 \end{equation*}
-\PalabraClave{Cómo se toman los datos:} Con un nivel de confianza del 95\% el valor crítico es
+\BloqueCorrido{Cómo se toman los datos}{Con un nivel de confianza del 95\% el valor crítico es
 $Z_{\alpha/2} = 1{,}96$. El error estándar de la media cae al agrandar el grupo y, como el
 margen de error $E$ es proporcional a ese error estándar, el intervalo se achica solo por el
 hecho de evaluar a más alumnos. Como en la simulación conocemos la media real de la población,
 construimos los intervalos centrados en $\mu = 81{,}37$ para verificar si el modelo atrapa el
-valor verdadero.
+valor verdadero.}
 
 \TituloGrafico{Cobertura de los intervalos de confianza}
 
@@ -88,7 +88,7 @@ valor verdadero.
     \label{fig:intervalos_campanas}
 \end{figure}
 
-\PalabraClave{Lo que revelan las curvas de la simulación:}
+\BloqueTitulo{Lo que revelan las curvas de la simulación}
 \begin{itemize}
   \item \textbf{Muestra pequeña ($n = 10$):} margen de error $\pm\,3{,}26$ puntos. El intervalo es
     tan ancho que apenas restringe dónde puede estar la media.

@@ -8,9 +8,22 @@
 \newcommand{\TablaDeDatos}{\subsubsection{Tabla de datos}}
 
 % --- Resaltados ---
-\newcommand{\PalabraClave}[1]{\medskip\textbf{#1}}       % palabras clave en el texto
+% \PalabraClave es SOLO para palabras clave: la palabra en negrita seguida de
+% su valor, dentro de la línea de texto. No sirve como encabezado de bloque;
+% para eso están \BloqueCorrido y \BloqueTitulo.
+\newcommand{\PalabraClave}[1]{\medskip\textbf{#1}}
 \newcommand{\Variable}[1]{\textbf{\texttt{#1}}}           % nombres de variables (monoespaciada)
-\newcommand{\Interpretacion}[1]{\medskip\noindent\textbf{Interpretación:}\space#1\par}
+
+% --- Encabezados de bloque ---
+% Corrido: negrita + dos puntos + el texto, todo en el mismo párrafo.
+%   \BloqueCorrido{Cómo se toman los datos}{Primero estandarizamos...}
+\newcommand{\BloqueCorrido}[2]{\medskip\noindent\textbf{#1:}\space#2\par}
+% Suelto: para cuando lo que sigue es una lista.
+%   \BloqueTitulo{Análisis de las campanas}
+%   \begin{itemize} ... \end{itemize}
+\newcommand{\BloqueTitulo}[1]{\medskip\noindent\textbf{#1:}\par}
+% \Interpretacion es un caso particular de \BloqueCorrido.
+\newcommand{\Interpretacion}[1]{\BloqueCorrido{Interpretación}{#1}}
 
 % --- Título para gráficos ---
 \newcommand{\TituloGrafico}[1]{\subsubsection{Gráfico: #1}}
