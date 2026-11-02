@@ -72,15 +72,11 @@ elegido al azar quede por debajo de esa nota, lo que ayuda a anticipar la demand
             % Región sombreada: P(X < 80).
             \addplot[draw=none, fill=blue!30, domain=70:80] {gauss(x,82.54,3.85)} \closedcycle;
             % Entradas del cuadro informativo.
-            \addlegendimage{dashed, gray, thick}
-            \addlegendentry{$\mu = 82{,}54$}
             \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
             \addlegendentry{$P = 25{,}46\%$}
             % Líneas de referencia.
-            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
-                node[above, black] {$\mu$};
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
             \draw[dashed, blue!60!black] (axis cs:80,0) -- (axis cs:80,{gauss(80,82.54,3.85)});
-            \node at (axis cs:76.5,0.02) [text=blue!60!black, font=\bfseries] {$P$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
@@ -130,15 +126,11 @@ dentro de esta distribución: apenas dos o tres alumnos de cada cien alcanzan es
             % Región sombreada: P(X > 90).
             \addplot[draw=none, fill=blue!30, domain=90:95] {gauss(x,82.54,3.85)} \closedcycle;
             % Entradas del cuadro informativo.
-            \addlegendimage{dashed, gray, thick}
-            \addlegendentry{$\mu = 82{,}54$}
             \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
             \addlegendentry{$P = 2{,}62\%$}
             % Líneas de referencia.
-            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
-                node[above, black] {$\mu$};
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
             \draw[dashed, blue!60!black] (axis cs:90,0) -- (axis cs:90,{gauss(90,82.54,3.85)});
-            \node at (axis cs:91.5,0.005) [text=blue!60!black, font=\bfseries] {$P$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
@@ -196,16 +188,12 @@ estándar-bueno.}
             % Región sombreada: P(77 < X < 83).
             \addplot[draw=none, fill=blue!30, domain=77:83] {gauss(x,82.54,3.85)} \closedcycle;
             % Entradas del cuadro informativo.
-            \addlegendimage{dashed, gray, thick}
-            \addlegendentry{$\mu = 82{,}54$}
             \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
             \addlegendentry{$P = 47{,}27\%$}
             % Líneas de referencia.
-            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11)
-                node[above, black] {$\mu$};
+            \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
             \draw[dashed, blue!60!black] (axis cs:77,0) -- (axis cs:77,{gauss(77,82.54,3.85)});
             \draw[dashed, blue!60!black] (axis cs:83,0) -- (axis cs:83,{gauss(83,82.54,3.85)});
-            \node at (axis cs:80,0.035) [text=blue!60!black, font=\bfseries] {$P$};
         \end{axis}
     \end{tikzpicture}
 \end{figure}
