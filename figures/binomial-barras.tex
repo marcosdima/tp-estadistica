@@ -15,10 +15,14 @@
   xtick=data,
   enlarge x limits=0.08,
 ]
+% Todas las barras en azul
 \addplot+[fill=azul, draw=azul] coordinates {
   (0,1.98) (1,9.49) (2,20.67) (3,26.33) (4,22.07) (5,12.70)
   (6,5.06) (7,1.39) (8,0.25) (9,0.03) (10,0.00)
 };
+% Barra k=3 (la moda) resaltada en naranja, superpuesta sobre la azul.
+% Se redescribe con su valor real (26,33) para que la altura siga siendo fiel.
+\addplot+[fill=naranja, draw=naranja] coordinates { (3,26.33) };
 \end{axis}
 \end{tikzpicture}
 \caption{Gráfico de distribución binomial.}
