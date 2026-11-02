@@ -24,6 +24,9 @@
 \newcommand{\BloqueTitulo}[1]{\medskip\noindent\textbf{#1:}\par}
 % \Interpretacion es un caso particular de \BloqueCorrido.
 \newcommand{\Interpretacion}[1]{\BloqueCorrido{Interpretación}{#1}}
+% \Respuesta no lleva argumento: lo que sigue (casi siempre una ecuación en
+% display) va por fuera del macro, igual que con \BloqueTitulo.
+\newcommand{\Respuesta}{\BloqueTitulo{Respuesta}}
 
 % --- Título para gráficos ---
 \newcommand{\TituloGrafico}[1]{\subsubsection{Gráfico: #1}}
