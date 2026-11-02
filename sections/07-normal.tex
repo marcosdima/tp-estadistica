@@ -68,11 +68,9 @@ elegido al azar quede por debajo de esa nota, lo que ayuda a anticipar la demand
             legend cell align=left,
         ]
             % Curva normal completa.
-            \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
+            \addplot[thick, blue!60!black, domain=70:95, forget plot] {gauss(x,82.54,3.85)};
             % Región sombreada: P(X < 80).
-            \addplot[draw=none, fill=blue!30, domain=70:80] {gauss(x,82.54,3.85)} \closedcycle;
-            % Entradas del cuadro informativo.
-            \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
+            \addplot[draw=none, fill=blue!30, domain=70:80, area legend] {gauss(x,82.54,3.85)} \closedcycle;
             \addlegendentry{$P = 25{,}46\%$}
             % Líneas de referencia.
             \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
@@ -122,11 +120,9 @@ dentro de esta distribución: apenas dos o tres alumnos de cada cien alcanzan es
             legend cell align=left,
         ]
             % Curva normal completa.
-            \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
+            \addplot[thick, blue!60!black, domain=70:95, forget plot] {gauss(x,82.54,3.85)};
             % Región sombreada: P(X > 90).
-            \addplot[draw=none, fill=blue!30, domain=90:95] {gauss(x,82.54,3.85)} \closedcycle;
-            % Entradas del cuadro informativo.
-            \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
+            \addplot[draw=none, fill=blue!30, domain=90:95, area legend] {gauss(x,82.54,3.85)} \closedcycle;
             \addlegendentry{$P = 2{,}62\%$}
             % Líneas de referencia.
             \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
@@ -184,11 +180,9 @@ estándar-bueno.}
             legend cell align=left,
         ]
             % Curva normal completa.
-            \addplot[thick, blue!60!black, domain=70:95] {gauss(x,82.54,3.85)};
+            \addplot[thick, blue!60!black, domain=70:95, forget plot] {gauss(x,82.54,3.85)};
             % Región sombreada: P(77 < X < 83).
-            \addplot[draw=none, fill=blue!30, domain=77:83] {gauss(x,82.54,3.85)} \closedcycle;
-            % Entradas del cuadro informativo.
-            \addlegendimage{area legend, fill=blue!30, draw=blue!60!black}
+            \addplot[draw=none, fill=blue!30, domain=77:83, area legend] {gauss(x,82.54,3.85)} \closedcycle;
             \addlegendentry{$P = 47{,}27\%$}
             % Líneas de referencia.
             \draw[dashed, gray] (axis cs:82.54,0) -- (axis cs:82.54,0.11);
