@@ -123,15 +123,11 @@ con centro en la media real y con un error estándar igual a $\sigma / \sqrt{n}$
 
 \PalabraClave{Análisis de las campanas:}
 \begin{itemize}
-  \item \textbf{La campana azul ($n = 10$):} Es la más ancha y baja. Sus promedios pueden
-    alejarse de la media real hasta 1,66 puntos, reflejando la inestabilidad de los grupos chicos.
-  \item \textbf{La campana roja ($n = 20$):} Es la intermedia. Sus promedios son menos dispersos
-    que en los grupos chicos y aún no se compactan como en los grupos grandes.
-  \item \textbf{La campana verde ($n = 30$):} Es la más alta y delgada. Toda su masa se concentra
-    en una franja estrecha alrededor de 81,37, dando promedios muy cercanos a la realidad.
-  \item \textbf{Todas comparten el centro:} Las tres campanas están ancladas en la misma media
-    $\mu = 81{,}37$. Ningún tamaño de grupo cambia el promedio esperado; solo cambia la
-    precisión con la que se alcanza.
+  \item \textbf{Mismo centro, distinto ancho:} las tres campanas se apoyan en la media real,
+    porque cambiar el tamaño del grupo no altera el promedio esperado, sino la dispersión con la
+    que se lo alcanza.
+  \item \textbf{A mayor $n$, más precisión:} al pasar de 10 a 30 alumnos el error estándar baja
+    de 1,66 a 0,96 puntos y la campana se estrecha alrededor de ese centro común.
 \end{itemize}
 
 \subsection{¿Qué nos demuestra el Teorema Central del Límite?}
@@ -149,6 +145,6 @@ $\sigma_{\bar{x}} = \sigma / \sqrt{n}$, al pasar de 10 a 30 alumnos el error cae
 la escuela están amontonadas de forma extraña o asimétrica; los promedios de los grupos grandes
 siempre se van a ordenar dibujando una campana de Gauss perfecta y simétrica.
 
-\Interpretacion{Este tema nos demuestra que la media muestral $\bar{x}$ es el mejor estimador posible para conocer la realidad de los alumnos: no solo no genera sesgo (sus promedios rondan siempre el valor real), sino que, a mayor tamaño del grupo, su error de estimación se reduce de forma controlada y predecible. En la práctica, esto justifica que la institución pueda evaluar el nivel de química de toda la escuela confiando en grupos de 30 estudiantes, sin necesidad de examinar a los 111 alumnos.}
+\Interpretacion{En la práctica, esto autoriza a la institución a estimar el nivel de química de toda la escuela confiando en grupos de 30 estudiantes, sin necesidad de examinar a los 111 alumnos.}
 
 

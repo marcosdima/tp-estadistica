@@ -90,19 +90,12 @@ valor verdadero.
 
 \PalabraClave{Lo que revelan las curvas de la simulación:}
 \begin{itemize}
-  \item \textbf{Muestra pequeña ($n = 10$) | Curva azul (baja y ancha):} Los promedios
-    individuales saltan de forma muy inestable (varían entre 80,40 y 83,30 puntos). El
-    intervalo queda muy abierto y genera un margen de error grande de $\pm\,3{,}26$ puntos.
-    Precisión muy baja: los grupos chicos no logran compensar las notas extremas.
-  \item \textbf{Tamaño medio ($n = 20$) | Curva roja (intermedia):} Al promediar más alumnos,
-    los extremos se empiezan a compensar y el rango de los promedios se achica (79,40 a
-    83,85). La campana se vuelve un poco más alta y angosta, y el margen de error baja a
-    $\pm\,2{,}31$ puntos. Precisión aceptable.
-  \item \textbf{Tamaño óptimo ($n = 30$) | Curva verde (alta y angosta):} Los promedios se
-    compactan fuertemente en el centro (79,63 a 83,00), amontonándose en el valor real. La
-    campana es la más puntiaguda de la simulación y consigue el menor margen de error: apenas
-    $\pm\,1{,}88$ puntos. Precisión óptima, alcanzando la convergencia que dicta el Teorema
-    Central del Límite.
+  \item \textbf{Muestra pequeña ($n = 10$):} margen de error $\pm\,3{,}26$ puntos. El intervalo es
+    tan ancho que apenas restringe dónde puede estar la media.
+  \item \textbf{Tamaño medio ($n = 20$):} el margen baja a $\pm\,2{,}31$ puntos a medida que los
+    extremos se compensan al promediar más alumnos.
+  \item \textbf{Tamaño óptimo ($n = 30$):} margen de apenas $\pm\,1{,}88$ puntos, el más angosto de
+    la simulación y la precisión que exige el Teorema Central del Límite.
 \end{itemize}
 
 \subsection{Cuadro comparativo}
@@ -110,4 +103,4 @@ El cálculo completo de los tres intervalos, lado a lado:
 
 \input{tables/intervalos-comparativo}
 
-\Interpretacion{El gráfico comparativo de campanas demuestra visualmente la regla de oro: a mayor tamaño de muestra ($n$), el intervalo de confianza se vuelve más angosto. Esto significa que logramos una mejor estimación de la verdadera media poblacional reduciendo el error al mínimo. Además, los tres intervalos contienen la media real ($\mu = 81{,}37$) y los tres promedios globales obtenidos (81,39; 81,56 y 81,24) caen dentro de sus propios intervalos, confirmando que la media muestral es el mejor estimador posible para conocer la realidad de los alumnos.}
+\Interpretacion{Los tres intervalos atrapan la media real, así que el método se valida solo; lo único que cambia entre uno y otro es cuántos alumnos evaluamos.}
