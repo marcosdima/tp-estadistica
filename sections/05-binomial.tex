@@ -12,7 +12,7 @@ El análisis de esta sección se divide en dos partes claramente diferenciadas:
   \Variable{absence\_days} (días de ausencia) de nuestra muestra: medidas de tendencia central,
   de dispersión y función de probabilidad.
   \item \textbf{Modelo binomial teórico:} sobre esa VAD aplicamos la distribución binomial
-  (éxito = asistencia perfecta, $p = 0{,}3243$) para un escenario hipotético de $n = 10$
+  (éxito = asistencia perfecta, $p = 0{,}3243$) para un escenario hipotético
   estudiantes seleccionados al azar.
 \end{itemize}
 
@@ -36,7 +36,12 @@ partir de las medidas de tendencia central y dispersión y de su función de pro
 \subsubsection{Tabla de probabilidades}
 Podemos transformar estos datos empíricos en un modelo de probabilidad teórico para predecir el
 comportamiento de la población estudiantil:
+\begin{table}[H]
+\centering
 \input{tables/binomial-empirica}
+\caption{Tabla de probabilidades de \Variable{absence\_days} (VAD).}
+\label{tab:binomial_empirica}
+\end{table}
 
 La función de probabilidad $P(x)$ de la variable aleatoria discreta \Variable{absence\_days} es:
 
@@ -45,14 +50,15 @@ La función de probabilidad $P(x)$ de la variable aleatoria discreta \Variable{a
 \newpage
 \subsection{Modelo teórico: distribución binomial}
 Nos proponemos analizar las probabilidades para un escenario hipotético donde se eligen 10
-estudiantes al azar (n = 10), con el objetivo de predecir cuántos de ellos tienen asistencia
+estudiantes al azar, con el objetivo de predecir cuántos de ellos tienen asistencia
 perfecta (éxito con probabilidad p = 0,324 o 32,43\%).
 
 \subsubsection{Tabla de análisis binomial}
 \input{tables/binomial-analisis}
 
 \begin{itemize}
-	\item \textbf{N:} Es la cantidad exacta de alumnos con asistencia perfecta que nos
+	\item \textbf{N:} Es la cantidad fija de ensayos (alumnos del grupo). Es siempre 10.
+\item \textbf{$k$:} Es la cantidad exacta de alumnos con asistencia perfecta que nos
   interesa encontrar dentro del grupo de 10 (va desde 0 hasta un máximo de 10).
 	\item \textbf{Combinaciones:} Indica cuántas formas distintas existen para elegir a esos 'k'
   alumnos dentro del total de 10. Por ejemplo, hay 120 maneras diferentes de combinar a 3 alumnos
@@ -70,71 +76,22 @@ perfecta (éxito con probabilidad p = 0,324 o 32,43\%).
 \end{itemize}
 
 \subsubsection{Parámetros de la distribución binomial}
-\begin{itemize}
-\item \textbf{Esperanza Matemática}(Media Teórica) \\
-  \PalabraClave{Fórmula:}
-  \[ E(X) = \mu = (x_1 * P(x_1)) + (x_2 * P(x_2)) + ... + (x_n * P(x_n)) \]
 
-  \PalabraClave{Cálculo:}
-  \begin{equation*}
-    \begin{split}
-      \sigma^2 = {} & ((0 - 1{,}2253)^2 \cdot 0{,}3243) + ((1 - 1{,}2253)^2 \cdot 0{,}2793) \\
-                    & + ((2 - 1{,}2253)^2 \cdot 0{,}2432) + ((3 - 1{,}2253)^2 \cdot 0{,}1532) =
-                    1{,}1295 \text{ días}^2
-    \end{split}
-  \end{equation*}
+\begin{DatosTabla}{>{\raggedright\arraybackslash}m{0.17\linewidth} >{\centering\arraybackslash}m{0.38\linewidth} >{\raggedright\arraybackslash}m{0.45\linewidth}}
+{\textbf{Parámetro} & \textbf{Cálculo} & \textbf{Qué significa}}
+\textbf{Esperanza Matemática} &
+$E(X) = n \cdot p = 10 \cdot 0{,}3243 = 3{,}243$ &
+Cantidad esperada de alumnos con asistencia perfecta en un grupo de 10; el promedio tendería a 3,243 (cerca de 3 alumnos). \\[10pt] \hline
+\textbf{Varianza Poblacional} &
+$Var(X) = n \cdot p \cdot q = 10 \cdot 0{,}3243 \cdot 0{,}6757 \approx 2{,}1913$ &
+Dispersión de la cantidad de alumnos con asistencia perfecta respecto a la esperanza, expresada en unidades al cuadrado. \\[10pt] \hline
+\textbf{Desvío Estándar Poblacional} &
+$\sigma = \sqrt{Var(X)} = \sqrt{2{,}1913} \approx 1{,}4803$ &
+Cuánto varían, en promedio, los alumnos con asistencia perfecta respecto a la esperanza (3,243 alumnos), en la unidad original. \\[10pt]
+\end{DatosTabla}
 
-  \PalabraClave{Cómo se toman los datos:}
-  A cada día de ausencia se le resta la esperanza matemática (mu = 1,2253). Ese resultado se eleva al
-  cuadrado (para evitar que los valores negativos se cancelen con los positivos) y se multiplica por
-  la probabilidad de ese día. Finalmente, se suman los cuatro resultados obtenidos.
-
-  \PalabraClave{Qué significa:} Mide la dispersión o variabilidad de los valores respecto a su media,
-  expresada en unidades al cuadrado. Sirve como paso matemático intermedio para conocer la fluctuación
-  de los datos escolares de la población.
-
-\item \textbf{Varianza Poblacional} \\
-  \PalabraClave{Fórmula:}
-  \begin{equation*}
-    \sigma^2 = ((x_1 - \mu)^2 \cdot P(x_1)) + ((x_2 - \mu)^2 \cdot P(x_2)) + ... + ((x_n - \mu)^2 \cdot P(x_n))
-  \end{equation*}
-
-  \PalabraClave{Desarrollo del cálculo:}
-  \begin{equation*}
-    \begin{split}
-      \sigma^2 = ((0 - 1{,}2253)^2 \cdot 0{,}3243) + ((1 - 1{,}2253)^2 \cdot 0{,}2793) + \\
-      ((2 - 1{,}2253)^2 \cdot 0{,}2432) + ((3 - 1{,}2253)^2 \cdot 0{,}1532) = 1{,}1295 \text{ días}^2
-    \end{split}
-  \end{equation*}
-
-  \PalabraClave{Cómo se toman los datos:}
-  A cada día de ausencia se le resta la esperanza matemática (mu = 1,2253). Ese resultado se
-  eleva al cuadrado (para evitar que los valores negativos se cancelen con los positivos) y se
-  multiplica por la probabilidad de ese día. Finalmente, se suman los cuatro resultados obtenidos.
-  
-  \PalabraClave{Qué significa:} Mide la dispersión o variabilidad de los valores respecto a su
-  media, expresada en unidades al cuadrado. Sirve como paso matemático intermedio para conocer la
-  fluctuación de los datos escolares de la población.
-
-\item \textbf{Desvío Estándar Poblacional} \\
-  \PalabraClave{Fórmula:}
-  \begin{equation*}
-    \sigma = \sqrt{\sigma^2}
-  \end{equation*}
-  \PalabraClave{Desarrollo del cálculo:}
-  \begin{equation*}
-    \sigma = \sqrt{1{,}1295} \approx 1{,}0632 \text{ días}
-  \end{equation*}
-
-  \PalabraClave{Cómo se toman los datos:}
-  Se toma el valor final obtenido en el cálculo de la varianza poblacional (1,1295) y se le aplica
-  la operación de raíz cuadrada para devolver la medida a su unidad original.
-
-  \PalabraClave{Qué significa:} Indica qué tan dispersos están los datos con respecto al promedio,
-  pero expresado directamente en la unidad de medida original (días). En este caso, señala que las
-  inasistencias de los alumnos varían, en promedio, 1,06 días alrededor de la media (1,23 días).
-
-\end{itemize}
+\medskip
+\noindent\textbf{Lectura:} la esperanza ubica el centro del conteo (unos 3 alumnos con asistencia perfecta por grupo), el desvío de 1,4803 alumnos indica la típica alejada de ese centro, y la varianza mide la dispersión en unidades al cuadrado como paso intermedio.
 
 \subsubsection{Gráfico de barras}
 \input{figures/binomial-barras}
