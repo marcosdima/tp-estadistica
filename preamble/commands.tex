@@ -17,11 +17,11 @@
 % --- Encabezados de bloque ---
 % Corrido: negrita + dos puntos + el texto, todo en el mismo párrafo.
 %   \BloqueCorrido{Cómo se toman los datos}{Primero estandarizamos...}
-\newcommand{\BloqueCorrido}[2]{\medskip\noindent\textbf{#1:}\space#2\par}
+\newcommand{\BloqueCorrido}[2]{\par\medskip\noindent\textbf{#1:}\space#2\par}
 % Suelto: para cuando lo que sigue es una lista.
 %   \BloqueTitulo{Análisis de las campanas}
 %   \begin{itemize} ... \end{itemize}
-\newcommand{\BloqueTitulo}[1]{\medskip\noindent\textbf{#1:}\par}
+\newcommand{\BloqueTitulo}[1]{\par\medskip\noindent\textbf{#1:}\par}
 % \Interpretacion es un caso particular de \BloqueCorrido.
 \newcommand{\Interpretacion}[1]{\BloqueCorrido{Interpretación}{#1}}
 % \Respuesta no lleva argumento: lo que sigue (casi siempre una ecuación en
